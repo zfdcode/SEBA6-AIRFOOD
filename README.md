@@ -4,6 +4,7 @@ Welcome to our project Airfood. This is a food-sharing web application for our S
 - Fangda Zuo
 - Yingjie Zhao
 - Dhruva Shrivastava
+
 ## Teamwork How-to
 1. create an issue/ assign an issue to yourself
 2. create a new branch named <issue id> and switch to this branch
