@@ -27,16 +27,20 @@ class ViewLoginComponentController{
     }
 
     $onInit() {
-        this.login = {};
+        this.$state.go('movies',{});
+        //this.login = {};
     }
 
     submit(){
+        /*
         let user = this.login.username;
         let password = this.login.password;
 
         this.UserService.login(user,password).then(()=> {
             this.$state.go('movies',{});
         });
+        */
+        //this.$state.go('movies',{});
     }
 
     static get $inject(){
