@@ -27,7 +27,7 @@ class ViewLoginComponentController{
     }
 
     $onInit() {
-        this.$state.go('movies',{});
+        this.$state.go('events',{});
         //this.login = {};
     }
 
