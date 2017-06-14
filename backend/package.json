@@ -1,5 +1,5 @@
 {
-  "name": "moviebass",
+  "name": "eventbass",
   "version": "1.0.0",
   "description": "Movie backend as a service",
   "main": "server.js",
@@ -11,7 +11,7 @@
     "url": "git+https://bitbucket.org/sebischair/sebamaster-movie-backend"
   },
   "keywords": [
-    "movie-backend",
+    "event-backend",
     "seba",
     "master"
   ],
