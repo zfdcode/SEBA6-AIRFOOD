@@ -1,8 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="">
 <head>
     <meta charset="UTF-8">
     <title>Yet Another Food-Sharing Application</title>
+
+    <!-- build:css styles/main.css -->
+    <link href="../bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../bower_components/bootstrap/dist/css/bootstrap-theme.min.css" rel="stylesheet">
+    <link href="../bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <!-- endbuild -->
+
     <script async="async" src="https://www.google.com/adsense/search/ads.js"></script>
 
     <!-- other head elements from your page -->
@@ -17,14 +24,30 @@
 
 <!-- homepage header: logo, register, login -->
 <div style="display: inline-block;">
-    <div style="float: left; "><img src="logo.JPEG" alt="airfood_logo" style="width:55px;height:55px;"></div>
+    <div style="float: left;"><img src="logo.JPEG" alt="airfood_logo" style="width:55px;height:55px;"></div>
     <div style="float: right; padding: 15px;text-decoration: underline"><a href="#register">Register</a></div>
     <div style="float: right; padding: 15px;text-decoration: underline"><a href="#login">Login</a></div>
 </div>
 
-<!-- homepage search field>
-
-<!-- advertisement division -->
+<!-- homepage search field -->
+<div style="padding-bottom: 100px;padding-top: 100px;padding-left: 300px;padding-right: 300px;">
+    <div style="border-color: #d58512;border-style: solid;border-width: thin;">
+        <form action="/action_page.php" method="get">
+            <input ng-style="" type="text" placeholder="Where">
+            <input type="text" placeholder="When">
+            <form>
+                <select ng-model="guests">
+                    <option value="">Guests</option>
+                    <option value="1">1 guest</option>
+                    <option value="2">2 guests</option>
+                    <option value="3">3 guests</option>
+                </select>
+                <button type="button" style="float: right">Search</button>
+            </form>
+        </form>
+    </div>
+</div>
+<!-- advertisement division-->
 <div id='afscontainer1'></div>
 
 
@@ -46,7 +69,7 @@
   _googCsa('ads', pageOptions, adblock1);
 
 </script>
-<app-content></app-content>
+<script src="../bower_components/angular/angular.min.js"></script>
 
 </body>
 </html>
