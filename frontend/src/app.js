@@ -35,7 +35,7 @@ let app = angular.module('app', [
     ViewLogin.name
 ]);
 
-app.constant('API_URL', 'http://accd1eb4.ngrok.io/api');
+app.constant('API_URL', 'http://localhost:27017/');
 app.config(Routes);
 app.config(Middlewares);
 
