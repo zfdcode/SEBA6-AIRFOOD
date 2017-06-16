@@ -37,10 +37,9 @@ class ViewLoginComponentController{
         let password = this.login.password;
 
         this.UserService.login(user,password).then(()=> {
-            this.$state.go('movies',{});
+            this.$state.go('events',{});
         });
         */
-        //this.$state.go('movies',{});
     }
 
     static get $inject(){

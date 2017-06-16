@@ -36,27 +36,31 @@ class ViewEventsComponentController{
     };
 
     edit (event) {
-
+        /*
         if (this.UserService.isAuthenticated()) {
             let _id = event['_id'];
             this.$state.go('eventEdit',{ eventId:_id});
         } else {
             this.$state.go('login',{});
-        }
+        }*/
+        let _id = event['_id'];
+        this.$state.go('eventEdit',{ eventId:_id});
     };
 
     newEvent(){
-
+        /*
         if (this.UserService.isAuthenticated()) {
             this.$state.go('eventAdd',{});
         } else {
             this.$state.go('login',{});
         }
-
+        */
+        this.$state.go('eventAdd',{});
     }
 
 
     delete(event) {
+        /*
         if (this.UserService.isAuthenticated()) {
             let _id = event['_id'];
 
@@ -68,6 +72,13 @@ class ViewEventsComponentController{
         } else {
             this.$state.go('login',{});
         }
+        */
+        let _id = event['_id'];
+
+        this.EventsService.delete(_id).then(response => {
+        let index = this.events.map(x => x['_id']).indexOf(_id);
+        this.events.splice(index, 1);
+    })
     };
 
 

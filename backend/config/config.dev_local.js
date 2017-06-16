@@ -3,7 +3,7 @@ Config.db = {};
 Config.app={};
 Config.auth = {};
 
-Config.db.host = 'localhost:8848';
+Config.db.host = 'localhost:27017';
 Config.db.name = 'airfooddb';
 
 // Use environment defined port or 3000
