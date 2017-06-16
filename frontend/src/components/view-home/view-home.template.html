@@ -1,0 +1,43 @@
+<md-card style="
+    position: absolute;
+    top: 20%;
+    left: 0;
+    right: 0;
+">
+    <md-card-title>
+        <md-card-title-text>
+            <span class="md-headline">Find a food-sharing event</span>
+            <span class="md-subhead">Tell us a little about you.</span>
+        </md-card-title-text>
+    </md-card-title>
+
+    <md-card-content>
+        <div layout="row" layout-align="space-around stretch">
+            <md-input-container>
+                <input type="text" ng-model="$ctrl.inputs.city" type="text" placeholder="Enter city name of event" />
+            </md-input-container>
+            <md-input-container>
+                <input type="text" ng-model="$ctrl.inputs.time" type="date" placeholder="Enter event start time" />
+            </md-input-container>
+            <md-input-container>
+                <md-select ng-model="$ctrl.inputs.guestCount">
+                    <label>Guest Count</label>
+                    <md-option value="1">1</md-option>
+                    <md-option value="2">2</md-option>
+                    <md-option value="3">3</md-option>
+                    <md-option value="4">4</md-option>
+                    <md-option value="5">5</md-option>
+                    <md-option value="6">6</md-option>
+                    <md-option value="7">7</md-option>
+                    <md-option value="8">8</md-option>
+                    <md-option value="9">9</md-option>
+                    <md-option value="10">10</md-option>
+                </md-select>
+            </md-input-container>
+            <md-button class="md-raised md-primary" type="submit" ng-click="$ctrl.searchEvents()" style="
+    height: 40px;
+    margin-top: 15px;
+">Search</md-button>
+        </div>
+        <md-card-content>
+</md-card>

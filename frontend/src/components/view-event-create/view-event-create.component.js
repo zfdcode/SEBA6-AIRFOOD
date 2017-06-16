@@ -40,12 +40,10 @@ class ViewEventCreateComponentController{
 
     };
 
-
     static get $inject(){
         return ['$state', EventsService.name, UserService.name];
     }
 
 }
-
 
 export default ViewEventCreateComponent;

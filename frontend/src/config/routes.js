@@ -5,6 +5,7 @@ import EventComponent from './../components/view-event/view-event.component';
 import EventEditComponent from './../components/view-event-edit/view-event-edit.component';
 import EventCreateComponent from './../components/view-event-create/view-event-create.component';
 import LoginComponent from './../components/view-login/view-login.component';
+import HomeComponent from './../components/view-home/view-home.component';
 
 import EventsService from './../services/events/events.service';
 
@@ -24,9 +25,13 @@ config.$inject = ['$stateProvider', '$urlRouterProvider'];
 export default function config ($stateProvider, $urlRouterProvider){
 
     // For any unmatched url, redirect to /home
-    $urlRouterProvider.otherwise("/events");
+    $urlRouterProvider.otherwise("/home");
 
     $stateProvider
+        .state('home', {
+            url: '/home',
+            component: HomeComponent.name,
+        })
         .state('events', {
             url: '/events',
             component: EventsComponent.name,
