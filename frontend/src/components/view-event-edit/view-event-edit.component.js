@@ -20,23 +20,27 @@ class ViewEventEditComponent {
 }
 
 class ViewEventEditComponentController{
-    constructor($state, EventsService){
+    constructor($state, EventsService) {
         this.model = {};
         this.$state = $state;
         this.EventsService = EventsService;
+        this.myDate = new Date();
+        //this.isOpen = false;
     }
-
-    $onInit() {
+    $onInit()
+        {
         //Clone the Event Data
         this.model = JSON.parse(JSON.stringify(this.event))
     }
 
-    cancel() {
+    cancel()
+        {
         this.model = JSON.parse(JSON.stringify(this.event));
         this.$state.go('events',{});
     };
 
-    save() {
+    save()
+        {
         let _id = this.event['_id'];
 
         this.EventsService.update(this.model).then(data => {
@@ -47,15 +51,20 @@ class ViewEventEditComponentController{
 
     };
 
-    delete() {
+    delete()
+        {
         let _id = this.event['_id'];
 
         this.EventsService.delete(_id).then(response => {
             this.$state.go('events',{});
         });
     };
+    uploadFile(){
+        //TODO: uploading process
+    }
 
-    static get $inject(){
+    static get $inject()
+        {
         return ['$state', EventsService.name];
     }
 
