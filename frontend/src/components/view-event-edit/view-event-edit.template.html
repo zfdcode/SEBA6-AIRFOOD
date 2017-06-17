@@ -9,7 +9,8 @@
                 <input ng-model="$ctrl.model.title" type="text">
             </md-input-container>
             <md-input-container class="md-icon-float md-block">
-                <label>Time</label>
+                <label>Date</label>
+                <md-datepicker ng-model="$ctrl.myDate" md-placeholder="Enter date" md-open-on-focus></md-datepicker>
                 <md-icon><ng-md-icon icon="date_range" ></ng-md-icon></md-icon>
                 <input ng-model="$ctrl.event.time" type="text">
             </md-input-container>
@@ -18,11 +19,23 @@
                 <md-icon><ng-md-icon icon="home" ></ng-md-icon></md-icon>
                 <input ng-model="$ctrl.event.address" type="text">
             </md-input-container>
-            <md-input-container class="md-block">
-                <label>Foods</label>
+            <md-input-container>
+                <md-select ng-model="$ctrl.event.foods">
+                    <label>Food Type</label>
+                    <md-option value="Vegetarian">Vegetarian</md-option>
+                    <md-option value="Steak">Steak</md-option>
+                    <md-option value="Italien">Italien</md-option>
+                    <md-option value="French">French</md-option>
+                    <md-option value="Spanien">Spanien</md-option>
+                    <md-option value="Asian">Asian</md-option>
+                    <md-option value="Asian">Secret Homdmade Receipt</md-option>
+                </md-select>
+            </md-input-container>
+            <!--<md-input-container class="md-block">
+                <label>Food Type</label>
                 <md-icon><ng-md-icon icon="local_dining" ></ng-md-icon></md-icon>
                 <textarea ng-model="$ctrl.event.foods" md-maxlength="1000" rows="8" md-select-on-focus></textarea>
-            </md-input-container>
+            </md-input-container> -->
             <div layout="row">
                 <span flex></span>
                 <md-button class="md-raised md-primary" type="submit" ng-click="$ctrl.save()">Save</md-button>
