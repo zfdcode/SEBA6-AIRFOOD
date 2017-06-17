@@ -17,6 +17,8 @@ class ViewHomeComponentController{
     constructor($state){
         this.$state = $state;
         this.inputs = {};
+        this.myDate = new Date();
+        this.isOpen = false;
     }
 
     searchEvents() {
