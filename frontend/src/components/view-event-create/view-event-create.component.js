@@ -23,6 +23,12 @@ class ViewEventCreateComponentController{
         this.$state = $state;
         this.EventsService = EventsService;
         this.UserService = UserService;
+        this.myDate = new Date();
+        //this.isOpen = false;
+    }
+    
+    uploadFile(){
+        //TODO: uploading process
     }
 
     cancel() {
