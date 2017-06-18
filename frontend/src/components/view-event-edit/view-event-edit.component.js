@@ -26,6 +26,7 @@ class ViewEventEditComponentController{
         this.EventsService = EventsService;
         this.myDate = new Date();
         //this.isOpen = false;
+        this.eventDescription = "";
     }
     $onInit()
         {
@@ -62,6 +63,10 @@ class ViewEventEditComponentController{
     uploadFile(){
         //TODO: uploading process
     }
+
+    /*onGoogleReady() {
+    angular.bootstrap(document.getElementById("map"), ['app.ui-map']);
+}*/
 
     static get $inject()
         {

@@ -1,3 +1,8 @@
+<script type="text/javascript" src="bower_components/angular/angular.js"></script>
+<script type="text/javascript" src="bower_components/angular-ui-event/dist/event.min.js"></script>
+<script type="text/javascript" src="bower_components/angular-ui-map/src/map.js"></script>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&callback=onGoogleReady"></script>
+
 <div layout="column" layout-padding>
     <md-content class="md-no-momentum">
         <h1> {{$ctrl.event.title}} </h1>
@@ -19,7 +24,7 @@
                 <md-icon><ng-md-icon icon="home" ></ng-md-icon></md-icon>
                 <input ng-model="$ctrl.event.address" type="text">
             </md-input-container>
-            <md-input-container class="md-block">
+            <md-input-container class="md-icon-float md-block">
                 <md-select ng-model="$ctrl.event.foods">
                     <label>Food Type</label>
                     <md-icon><ng-md-icon icon="local_dining" ></ng-md-icon></md-icon>
@@ -29,8 +34,12 @@
                     <md-option value="French">French</md-option>
                     <md-option value="Spanien">Spanien</md-option>
                     <md-option value="Asian">Asian</md-option>
-                    <md-option value="Asian">Secret Homdmade Receipt</md-option>
+                    <md-option value="Asian">Secret Homemade Receipt</md-option>
                 </md-select>
+            </md-input-container>
+            <md-input-container class="md-icon-float md-block">
+                <label>Event Description</label>
+                <input type="text" ng-model="$ctrl.eventDescription" md-maxlength="250" placeholder="Briefly describe your event and give some advices" />
             </md-input-container>
             <!--<md-input-container class="md-block">
                 <label>Food Type</label>
@@ -43,6 +52,12 @@
                 <input type = "file" file-model = "myFile"/>
                 <md-button class="md-raised md-primary" ng-click = "$ctrl.uploadFile()">Upload</md-button>
             </div>
+            <!-- google map
+            <div>
+                <section id="map" ng-controller="MapCtrl" >
+                <div ui-map="myMap" ui-options="mapOptions" class="map-canvas"></div>
+                </section>
+            </div> -->
             <div layout="row">
                 <span flex></span>
                 <md-button class="md-raised md-primary" type="submit" ng-click="$ctrl.save()">Save</md-button>
