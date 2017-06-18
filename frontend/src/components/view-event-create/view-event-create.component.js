@@ -25,8 +25,9 @@ class ViewEventCreateComponentController{
         this.UserService = UserService;
         this.myDate = new Date();
         //this.isOpen = false;
+        this.eventDescription = "";
     }
-    
+
     uploadFile(){
         //TODO: uploading process
     }
