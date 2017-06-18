@@ -9,7 +9,8 @@
                 <input ng-model="$ctrl.event.title" type="text">
             </md-input-container>
             <md-input-container class="md-icon-float md-block">
-                <label>Time</label>
+                <label>Date</label>
+                <md-datepicker ng-model="$ctrl.myDate" md-placeholder="Enter date" md-open-on-focus></md-datepicker>
                 <md-icon><ng-md-icon icon="date_range" ></ng-md-icon></md-icon>
                 <input ng-model="$ctrl.event.time" type="text">
             </md-input-container>
