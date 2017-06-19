@@ -1,7 +1,7 @@
 # Project Airfood
 Welcome to our project Airfood. This is a food-sharing web application for our SEBA course.
 ## Members
-- Fangda Zuo
+- Fangda Zuo (Fanda Zuo/fangda.zuo@tum.de and zfdcode/zfdstudy@outlook.com)
 - Yingjie Zhao
 - Dhruva Shrivastava
 
