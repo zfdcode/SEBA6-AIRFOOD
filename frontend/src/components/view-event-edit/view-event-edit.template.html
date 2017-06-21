@@ -14,10 +14,10 @@
                 <input ng-model="$ctrl.model.title" type="text">
             </md-input-container>
             <md-input-container class="md-icon-float md-block">
+                <ng-md-icon icon="date_range"></ng-md-icon>
                 <label>Date</label>
-                <md-datepicker ng-model="$ctrl.myDate" md-placeholder="Enter date" md-open-on-focus></md-datepicker>
-                <md-icon><ng-md-icon icon="date_range" ></ng-md-icon></md-icon>
-                <input ng-model="$ctrl.event.time" type="text">
+                <md-datepicker ng-model="$ctrl.myDate" md-hide-icons="calendar" layout-margin="right" md-placeholder="Enter date" md-open-on-focus></md-datepicker>
+                <!--<input ng-model="$ctrl.event.time" type="text"> -->
             </md-input-container>
             <md-input-container class="md-icon-float md-block">
                 <label>Address</label>
@@ -38,8 +38,7 @@
                 </md-select>
             </md-input-container>
             <md-input-container class="md-icon-float md-block">
-                <label>Event Description</label>
-                <input type="text" ng-model="$ctrl.eventDescription" md-maxlength="250" placeholder="Briefly describe your event and give some advices" />
+                <input type="text" ng-model="$ctrl.eventDescription" md-maxlength="250" placeholder="Event Description: Briefly describe your event and give some advices" />
             </md-input-container>
             <!--<md-input-container class="md-block">
                 <label>Food Type</label>
