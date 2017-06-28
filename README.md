@@ -19,7 +19,8 @@ Welcome to our project Airfood. This is a food-sharing web application for our S
 11. commit and push
 12. submit merge request
 13. repeat 1-12 :-)
--------------improvements------------------------
+-------------improvements below------------------------
 14. add auto-complete feature in searching field (tip: mdAutocomplete API)
 15. login feature
 16. add logo in landing page and also in browser tab (tips: shortcut)
+17. improve photo uploading functionality
