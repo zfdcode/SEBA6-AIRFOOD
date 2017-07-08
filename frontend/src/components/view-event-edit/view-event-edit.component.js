@@ -43,10 +43,8 @@ class ViewEventEditComponentController{
     save()
         {
         let _id = this.event['_id'];
-
         this.EventsService.update(this.model).then(data => {
             this.event = JSON.parse(JSON.stringify(data));
-
             this.$state.go('event',{ eventId:_id});
         });
 
@@ -55,7 +53,6 @@ class ViewEventEditComponentController{
     delete()
         {
         let _id = this.event['_id'];
-
         this.EventsService.delete(_id).then(response => {
             this.$state.go('events',{});
         });

@@ -5,7 +5,6 @@ import template from './view-events.template.html';
 import EventsService from './../../services/events/events.service';
 import UserService from './../../services/user/user.service';
 
-
 class ViewEventsComponent {
     constructor(){
         this.controller = ViewEventsComponentController;
@@ -18,8 +17,6 @@ class ViewEventsComponent {
     static get name() {
         return 'viewEvents';
     }
-
-
 }
 
 class ViewEventsComponentController{
@@ -27,7 +24,6 @@ class ViewEventsComponentController{
         this.$state = $state;
         this.EventsService = EventsService;
         this.UserService = UserService;
-
     }
 
     details (event) {
@@ -36,56 +32,39 @@ class ViewEventsComponentController{
     };
 
     edit (event) {
-        /*
         if (this.UserService.isAuthenticated()) {
             let _id = event['_id'];
             this.$state.go('eventEdit',{ eventId:_id});
         } else {
             this.$state.go('login',{});
-        }*/
-        let _id = event['_id'];
-        this.$state.go('eventEdit',{ eventId:_id});
+        }
     };
 
     newEvent(){
-        /*
         if (this.UserService.isAuthenticated()) {
             this.$state.go('eventAdd',{});
         } else {
             this.$state.go('login',{});
         }
-        */
-        this.$state.go('eventAdd',{});
     }
 
 
     delete(event) {
-        /*
         if (this.UserService.isAuthenticated()) {
             let _id = event['_id'];
-
             this.EventsService.delete(_id).then(response => {
                 let index = this.events.map(x => x['_id']).indexOf(_id);
                 this.events.splice(index, 1);
             })
-
         } else {
             this.$state.go('login',{});
         }
-        */
-        let _id = event['_id'];
-
-        this.EventsService.delete(_id).then(response => {
-        let index = this.events.map(x => x['_id']).indexOf(_id);
-        this.events.splice(index, 1);
-    })
     };
 
 
     static get $inject(){
         return ['$state', EventsService.name, UserService.name];
     }
-
 }
 
 export default ViewEventsComponent;

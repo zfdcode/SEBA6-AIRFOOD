@@ -6,15 +6,11 @@ var Event   = new mongoose.Schema({
     title: String,
     time: Number,
     address: String,
-    user: String,
-    foods: String
-    
-    /*
+    foods: String,
     user: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
-    }
-    */
+    },
 });
 
 // Export the Mongoose model
