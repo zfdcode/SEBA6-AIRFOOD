@@ -2,12 +2,15 @@
 var Event = require('./eventSchema');
 exports.postEvent = function(req, res) {
     var event = new Event(req.body);
+    /*
     //do not allow user to fake identity. The user who postet the event must be the same user that is logged in
     if (!req.user.equals(event.user)) {
         res.sendStatus(401);
-    }
+        //res.status(401).send(req.user)
+    }*/
 
     event.save(function(err, m) {
+        console.log(m)
         if (err) {
             res.status(400).send(err);
             return;
