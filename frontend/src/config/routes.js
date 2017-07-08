@@ -6,6 +6,7 @@ import EventEditComponent from './../components/view-event-edit/view-event-edit.
 import EventCreateComponent from './../components/view-event-create/view-event-create.component';
 import LoginComponent from './../components/view-login/view-login.component';
 import HomeComponent from './../components/view-home/view-home.component';
+import RegisterComponent from './../components/view-register/view-register.component';
 
 import EventsService from './../services/events/events.service';
 
@@ -49,7 +50,6 @@ export default function config ($stateProvider, $urlRouterProvider){
             resolve: {
                 event : resolveEvent
             }
-
         })
         .state('eventEdit', {
             url: '/events/:eventId/edit',
@@ -61,6 +61,10 @@ export default function config ($stateProvider, $urlRouterProvider){
         .state('login', {
             url: '/login',
             component: LoginComponent.name,
+        })
+        .state('register',{
+            url: '/register',
+            component: RegisterComponent.name,
         })
 
 
