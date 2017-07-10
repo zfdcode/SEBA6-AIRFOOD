@@ -34,7 +34,9 @@ jwtConfig(passport);
  */
 var userRoutes = require("./user/userRoutes");
 var eventRoutes = require("./event/eventRoutes");
+var cityRoutes = require("./city/cityRoutes");
 app.use('/api/events', eventRoutes(passport));
 app.use('/api/user', userRoutes(passport));
+app.use('/api/city', cityRoutes(passport));
 module.exports = app;
 
