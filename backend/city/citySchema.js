@@ -3,7 +3,7 @@ var mongoose = require('mongoose');
 
 // Define our city schema
 var City   = new mongoose.Schema({
-    name : string
+    name : String
 });
 
 // Export the Mongoose model
