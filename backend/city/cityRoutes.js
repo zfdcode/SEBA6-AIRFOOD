@@ -15,7 +15,7 @@ function cityRoutes(passport) {
     router.use(mw.unless({method: ['GET','POST','DELETE','PUT','OPTIONS']}));
 
     router.route('/')
-        .get(cityController.getCountries);
-        
+        .get(cityController.getCities);
+
     return router;
 }
