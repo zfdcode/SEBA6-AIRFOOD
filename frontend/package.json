@@ -26,13 +26,20 @@
     "webpack": "^1.13.1"
   },
   "dependencies": {
+    "@uirouter/angularjs": "^1.0.0",
     "angular": "^1.5.8",
     "angular-animate": "^1.5.8",
     "angular-aria": "^1.5.8",
     "angular-material": "^1.1.0",
     "angular-material-icons": "^0.7.1",
     "angular-messages": "^1.5.8",
-    "@uirouter/angularjs": "^1.0.0"
+    "angular-sanitize": "^1.6.5",
+    "angular-sc-select": "^0.2.0",
+    "bootstrap": "^3.3.7",
+    "font-awesome": "^4.7.0",
+    "select2": "^4.0.3",
+    "select2-bootstrap-css": "^1.4.6",
+    "ui-select": "^0.19.8"
   },
   "engines": {
     "node": ">=4.3"

@@ -10,6 +10,9 @@ import ngMdIcons from 'angular-material-icons';
 
 import EventsService from './services/events/events';
 import UserService from './services/user/user';
+import angularScSelect from 'angular-sc-select';
+import uiSelect from 'ui-select';
+import sanitize from 'angular-sanitize';
 
 import Routes from './config/routes';
 import Middlewares from './config/middlewares';
@@ -24,6 +27,8 @@ import ViewHome from './components/view-home/view-home';
 import ViewRegister from './components/view-register/view-register';
 
 let app = angular.module('app', [
+    angularScSelect, 
+    sanitize, 
     uiRouter,
     angularMaterial,
     ngMdIcons,
