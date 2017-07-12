@@ -1,11 +1,13 @@
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-select/0.20.0/select.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
 <md-card id="searchField" style="
     position: absolute;
     top: 20%;
     left: 0;
     right: 0;
-" >
+">
     <md-card-title>
         <md-card-title-text>
             <span class="md-headline" layout-align="center center">Find a food-sharing event</span>
@@ -24,10 +26,10 @@
             </md-input-container>
             <md-input-container flex="25">
                 <label>Date</label>
-                <md-datepicker ng-model="$ctrl.myDate" md-placeholder="Enter date" md-open-on-focus></md-datepicker>
+                <md-datepicker ng-model="$ctrl.inputs.time" md-placeholder="Enter date" md-open-on-focus></md-datepicker>
                 <!-- <input type="text" ng-model="$ctrl.inputs.time" type="date" placeholder="Enter event start time" /> -->
             </md-input-container>
-                <md-input-containe flex="20">
+            <md-input-containe flex="20">
                 <md-select ng-model="$ctrl.inputs.guestCount">
                     <label>Guest Count</label>
                     <md-option value="1">1</md-option>
@@ -49,4 +51,8 @@
         </div>
     </md-card-content>
 </md-card>
-<script>document.getElementById("searchField").style.backgroundImage="url(images/background.jpg)";</script>
+
+<script>
+    document.getElementById("searchField").style.backgroundImage = "url(images/background.jpg)";
+
+</script>

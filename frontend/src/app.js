@@ -2,7 +2,6 @@
 
 import angular from 'angular';
 import uiRouter from '@uirouter/angularjs';
-
 import angularMaterial from 'angular-material';
 import 'angular-material/angular-material.css';
 
@@ -10,9 +9,6 @@ import ngMdIcons from 'angular-material-icons';
 
 import EventsService from './services/events/events';
 import UserService from './services/user/user';
-import angularScSelect from 'angular-sc-select';
-import uiSelect from 'ui-select';
-import sanitize from 'angular-sanitize';
 
 import Routes from './config/routes';
 import Middlewares from './config/middlewares';
@@ -27,13 +23,12 @@ import ViewHome from './components/view-home/view-home';
 import ViewRegister from './components/view-register/view-register';
 
 let app = angular.module('app', [
-    angularScSelect, 
-    sanitize, 
     uiRouter,
     angularMaterial,
     ngMdIcons,
     UserService.name,
     EventsService.name,
+    CityService.name,
     AppContent.name,
     ViewEvents.name,
     ViewEvent.name,
@@ -42,6 +37,8 @@ let app = angular.module('app', [
     ViewLogin.name,
     ViewHome.name,
     ViewRegister.name,
+    require("ui-select"),
+    require('angular-sanitize')
 ]);
 
 app.constant('API_URL', 'http://localhost:3000/api');

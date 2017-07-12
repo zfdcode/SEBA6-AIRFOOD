@@ -34,11 +34,11 @@
     "angular-material-icons": "^0.7.1",
     "angular-messages": "^1.5.8",
     "angular-sanitize": "^1.6.5",
-    "angular-sc-select": "^0.2.0",
+    "angular-ui-select": "^0.12.100",
     "bootstrap": "^3.3.7",
-    "font-awesome": "^4.7.0",
+    "express": "^4.15.3",
+    "jquery": "^3.2.1",
     "select2": "^4.0.3",
-    "select2-bootstrap-css": "^1.4.6",
     "ui-select": "^0.19.8"
   },
   "engines": {
