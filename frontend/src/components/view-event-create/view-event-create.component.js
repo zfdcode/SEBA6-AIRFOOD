@@ -40,6 +40,8 @@ class ViewEventCreateComponentController{
         let user = this.UserService.getCurrentUser();
 
         this.event['user'] = user['_id'];
+        let date = this.event.time;
+        this.event.time = date.getFullYear()+"-"+date.getMonth()+"-"+date.getDate();
         this.EventsService.create(this.event).then(data => {
             let _id = data['_id'];
             this.$state.go('event',{ eventId:_id});
