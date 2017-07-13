@@ -12,18 +12,16 @@
                 <ng-md-icon icon="search"></ng-md-icon>
             </md-icon>
             <md-input-container flex="35">
-                <md-select name="repeatSelect" id="repeatSelect" ng-model="$ctrl.inputs.city">
+                <md-select name="repeatSelect" placeholder="City of event" id="repeatSelect" ng-model="$ctrl.inputs.city">
                     <md-option ng-repeat="option in $ctrl.cities" value="{{option._id}}">{{option.name}}</md-option>
                 </md-select>
             </md-input-container>
             <md-input-container flex="25">
                 <label>Date</label>
                 <md-datepicker ng-model="$ctrl.inputs.time" md-placeholder="Enter date" md-open-on-focus></md-datepicker>
-                <!-- <input type="text" ng-model="$ctrl.inputs.time" type="date" placeholder="Enter event start time" /> -->
             </md-input-container>
             <md-input-containe flex="20">
-                <md-select ng-model="$ctrl.inputs.guestCount">
-                    <label>Guest Count</label>
+                <md-select ng-model="$ctrl.inputs.guestCount" placeholder="Guest count of event">
                     <md-option value="1">1</md-option>
                     <md-option value="2">2</md-option>
                     <md-option value="3">3</md-option>
