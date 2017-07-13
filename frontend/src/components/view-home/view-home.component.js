@@ -1,11 +1,15 @@
 'use strict';
 
 import template from './view-home.template.html';
+import CityService from './../../services/city/city.service';
 
 class ViewHomeComponent {
-    constructor(){
+    constructor() {
         this.controller = ViewHomeComponentController;
         this.template = template;
+        this.bindings = {
+            city: '=',
+        }
     }
 
     static get name() {
@@ -13,27 +17,21 @@ class ViewHomeComponent {
     }
 }
 
-class ViewHomeComponentController{
-    constructor($state){
+class ViewHomeComponentController {
+    constructor($state) {
         this.$state = $state;
         this.inputs = {};
         this.myDate = new Date();
         this.isOpen = false;
-        this.itemArray = [
-        {id: 1, name: 'first'},
-        {id: 2, name: 'second'},
-        {id: 3, name: 'third'},
-        {id: 4, name: 'fourth'},
-        {id: 5, name: 'fifth'},
-    ];
+        this.CityService = CityService;
     }
 
     searchEvents() {
-        this.$state.go('events',{});
+        this.$state.go('events', {});
     };
 
-    static get $inject(){
-        return ['$state'];
+    static get $inject() {
+        return ['$state', CityService.name];
     }
 }
 
