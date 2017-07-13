@@ -12,7 +12,7 @@ class ViewEventsComponent {
         this.bindings = {
             events: '<',
         }
-    }
+    } 
 
     static get name() {
         return 'viewEvents';
@@ -24,6 +24,7 @@ class ViewEventsComponentController{
         this.$state = $state;
         this.EventsService = EventsService;
         this.UserService = UserService;
+        this.user = this.UserService.getCurrentUser();
     }
 
     details (event) {

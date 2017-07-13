@@ -19,17 +19,17 @@ class ViewHomeComponent {
 }
 
 class ViewHomeComponentController {
-    constructor($state,CityService) {
+    constructor($state, CityService) {
         this.$state = $state;
         this.inputs = {};
         this.CityService = CityService;
     }
 
     searchEvents() {
-        let city=this.inputs.city;
-        let date = this.inputs.time.getFullYear()+"-"+this.inputs.time.getMonth()+"-"+this.inputs.time.getDate();
+        let city = this.inputs.city;
+        let date = this.inputs.time.getFullYear() + "-" + this.inputs.time.getMonth() + "-" + this.inputs.time.getDate();
         let guestCount = this.inputs.guestCount;
-        this.$state.go('events', {city:city,date:date,guestCount:guestCount});
+        this.$state.go('events', { city: city, date: date, guestCount: guestCount });
     };
 
     static get $inject() {

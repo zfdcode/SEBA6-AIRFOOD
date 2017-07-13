@@ -8,10 +8,10 @@
 
     <md-card-content>
         <div layout="row">
-            <md-icon>
-                <ng-md-icon icon="search"></ng-md-icon>
-            </md-icon>
             <md-input-container flex="35">
+                <md-icon>
+                    <ng-md-icon icon="search"></ng-md-icon>
+                </md-icon>
                 <md-select name="repeatSelect" placeholder="City of event" id="repeatSelect" ng-model="$ctrl.inputs.city">
                     <md-option ng-repeat="option in $ctrl.cities" value="{{option._id}}">{{option.name}}</md-option>
                 </md-select>
