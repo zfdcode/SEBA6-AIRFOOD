@@ -1,13 +1,4 @@
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-select/0.20.0/select.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
-<md-card id="searchField" style="
-    position: absolute;
-    top: 20%;
-    left: 0;
-    right: 0;
-">
+<md-card id="searchField">
     <md-card-title>
         <md-card-title-text>
             <span class="md-headline" layout-align="center center">Find a food-sharing event</span>
@@ -17,11 +8,13 @@
 
     <md-card-content>
         <div layout="row">
-            <i class="material-icons md-36">search</i>
+            <md-icon>
+                <ng-md-icon icon="search"></ng-md-icon>
+            </md-icon>
             <md-input-container flex="35">
-                <select name="repeatSelect" id="repeatSelect" ng-model="$ctrl.inputs.city">
-                    <option ng-repeat="option in $ctrl.cities" value="{{option._id}}">{{option.name}}</option>
-                </select>
+                <md-select name="repeatSelect" id="repeatSelect" ng-model="$ctrl.inputs.city">
+                    <md-option ng-repeat="option in $ctrl.cities" value="{{option._id}}">{{option.name}}</md-option>
+                </md-select>
             </md-input-container>
             <md-input-container flex="25">
                 <label>Date</label>
@@ -43,10 +36,7 @@
                     <md-option value="10">10</md-option>
                 </md-select>
             </md-input-containe>
-            <md-button flex class="md-raised md-primary" type="submit" ng-click="$ctrl.searchEvents()" style="
-    height: 40px;
-    margin-top: 15px;
-">Search</md-button>
+            <md-button flex id="home_search" class="md-raised md-primary" type="submit" ng-click="$ctrl.searchEvents()">Search</md-button>
         </div>
     </md-card-content>
 </md-card>
