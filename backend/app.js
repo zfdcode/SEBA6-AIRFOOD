@@ -35,8 +35,10 @@ jwtConfig(passport);
 var userRoutes = require("./user/userRoutes");
 var eventRoutes = require("./event/eventRoutes");
 var cityRoutes = require("./city/cityRoutes");
+var foodTypeRoutes = require("./foodType/foodTypeRoutes");
 app.use('/api/events', eventRoutes(passport));
 app.use('/api/user', userRoutes(passport));
-app.use('/api/city', cityRoutes(passport));
+app.use('/api/foodTypes', foodTypeRoutes(passport));
+app.use('/api/cities', cityRoutes(passport));
 module.exports = app;
 
