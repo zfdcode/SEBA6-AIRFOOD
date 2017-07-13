@@ -9,7 +9,7 @@ export default class CityService {
 
     constructor($http, API_URL) {
         this.$http = $http;
-        this.resourceUrl = `${API_URL}/city/`;
+        this.resourceUrl = `${API_URL}/cities/`;
     }
 
     static get name() {
