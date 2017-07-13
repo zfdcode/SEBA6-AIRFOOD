@@ -27,9 +27,10 @@ class ViewHomeComponentController {
     }
 
     searchEvents() {
-        let city=this.inputs.city
-        let date = this.inputs.time
-        this.$state.go('events', {});
+        let city=this.inputs.city;
+        let date = this.inputs.time.getFullYear()+"-"+this.inputs.time.getMonth()+"-"+this.inputs.time.getDate();
+        let guestCount = this.inputs.guestCount;
+        this.$state.go('events', {city:city,date:date,guestCount:guestCount});
     };
 
     static get $inject() {

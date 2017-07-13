@@ -43,7 +43,7 @@ export default function config($stateProvider, $urlRouterProvider) {
             }
         })
         .state('events', {
-            url: '/events',
+            url: '/events?city&date&guestCount',
             component: EventsComponent.name,
             resolve: {
                 events: resolveEvents
