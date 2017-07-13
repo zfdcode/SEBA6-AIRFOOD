@@ -22,7 +22,6 @@ class ViewHomeComponentController {
     constructor($state,CityService) {
         this.$state = $state;
         this.inputs = {};
-        this.isOpen = false;
         this.CityService = CityService;
     }
 

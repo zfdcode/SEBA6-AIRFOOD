@@ -15,7 +15,7 @@
             <md-input-container class="md-icon-float md-block">
                 <ng-md-icon icon="date_range">
                 </ng-md-icon>
-                <md-datepicker ng-model="$ctrl.event.time" name="dateField" md-min-date="$ctrl.myDate" md-hide-icons="calendar" layout-margin="right"
+                <md-datepicker ng-model="$ctrl.event.time" name="dateField" md-min-date="$ctrl.today" md-hide-icons="calendar" layout-margin="right"
                     md-open-on-focus requird=""></md-datepicker>
                 <div ng-messages="EventForm.dateField.$error">
                     <div ng-message="valid">The entered value is not a date!</div>
@@ -24,21 +24,27 @@
                 </div>
             </md-input-container>
             <md-input-container class="md-icon-float md-block">
-                <label>Address</label>
+                <md-icon>
+                    <ng-md-icon icon="location_city"></ng-md-icon>
+                </md-icon>
+                <md-select name="repeatSelect" placeholder="City of event" id="citySelect" ng-model="$ctrl.event.city">
+                    <md-option ng-repeat="option in $ctrl.cities" value="{{option._id}}">{{option.name}}</md-option>
+                </md-select>
+            </md-input-container>
+            <md-input-container class="md-icon-float md-block">
                 <md-icon>
                     <ng-md-icon icon="home"></ng-md-icon>
                 </md-icon>
-                <input name="address" ng-model="$ctrl.event.address" type="text" required="">
+                <input name="address" placeholder="Address" ng-model="$ctrl.event.address" type="text" required="">
                 <div ng-messages="EventForm.address.$error" role="alert" multiple="">
                     <div ng-message="required">Please enter the address of your event.</div>
                 </div>
             </md-input-container>
             <md-input-container class="md-icon-float md-block">
-                <md-select name="foodType" ng-model="$ctrl.event.foodType" required="">
-                    <label>Food Type</label>
-                    <md-icon>
+                <md-icon>
                         <ng-md-icon icon="local_dining"></ng-md-icon>
                     </md-icon>
+                <md-select placeholder="Food Type" name="foodType" ng-model="$ctrl.event.foodType" required="">         
                     <md-option value="Vegetarian">Vegetarian</md-option>
                     <md-option value="Steak">Steak</md-option>
                     <md-option value="Italien">Italien</md-option>
@@ -49,8 +55,11 @@
                 </md-select>
             </md-input-container>
             <md-input-container class="md-icon-float md-block">
-                <input type="text" name="description" ng-model="$ctrl.eventDescription" md-maxlength="250" placeholder="Event Description: Briefly describe your event and give some advices"
-                />
+                <md-icon>
+                    <ng-md-icon icon="event_note"></ng-md-icon>
+                </md-icon>
+                <textarea type="text" name="description" ng-model="$ctrl.event.eventDescription" md-maxlength="250" rows="3" md-select-on-focus
+                    placeholder="Event Description: Briefly describe your event and give some advices" />
             </md-input-container>
             <div>
                 <ng-md-icon icon="file_upload"></ng-md-icon>

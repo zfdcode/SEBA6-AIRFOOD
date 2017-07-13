@@ -51,7 +51,10 @@ export default function config($stateProvider, $urlRouterProvider) {
         })
         .state('eventAdd', {
             url: '/events/new',
-            component: EventCreateComponent.name
+            component: EventCreateComponent.name,
+            resolve: {
+                cities: resolveCities
+            }
         })
         .state('event', {
             url: '/events/:eventId',
