@@ -9,6 +9,7 @@ import ngMdIcons from 'angular-material-icons';
 
 import EventsService from './services/events/events';
 import UserService from './services/user/user';
+import CityService from './services/city/city';
 
 import Routes from './config/routes';
 import Middlewares from './config/middlewares';

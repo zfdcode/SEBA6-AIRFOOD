@@ -8,7 +8,7 @@ class ViewHomeComponent {
         this.controller = ViewHomeComponentController;
         this.template = template;
         this.bindings = {
-            city: '=',
+            cities: '<',
         }
     }
 
@@ -18,7 +18,7 @@ class ViewHomeComponent {
 }
 
 class ViewHomeComponentController {
-    constructor($state) {
+    constructor($state,CityService) {
         this.$state = $state;
         this.inputs = {};
         this.myDate = new Date();

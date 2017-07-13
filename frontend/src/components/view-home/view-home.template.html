@@ -19,10 +19,9 @@
         <div layout="row">
             <i class="material-icons md-36">search</i>
             <md-input-container flex="35">
-                <input type="text" ng-model="$ctrl.inputs.city" type="text" placeholder="Enter city name of event" />
-                <!-- <div ng-messages="inputs.clientName.$error">
-                    <div ng-message="required">This is required. </div>
-                </div> -->
+                <select name="repeatSelect" id="repeatSelect" ng-model="$ctrl.inputs.city">
+                    <option ng-repeat="option in $ctrl.cities" value="{{option._id}}">{{option.name}}</option>
+                </select>
             </md-input-container>
             <md-input-container flex="25">
                 <label>Date</label>
