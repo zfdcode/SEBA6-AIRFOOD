@@ -10,6 +10,7 @@ import RegisterComponent from './../components/view-register/view-register.compo
 
 import EventsService from './../services/events/events.service';
 import CityService from './../services/city/city.service'; 
+import FoodTypeService from './../services/foodType/foodType.service'; 
 
 
 resolveEvent.$inject = ['$stateParams', EventsService.name];
@@ -27,6 +28,10 @@ function resolveCities(cityService) {
     return cityService.list();
 }
 
+resolveFoodTypes.$inject = [FoodTypeService.name];
+function resolveFoodTypes(foodTypeService) {
+    return foodTypeService.list();
+}
 
 config.$inject = ['$stateProvider', '$urlRouterProvider'];
 export default function config($stateProvider, $urlRouterProvider) {
@@ -53,7 +58,8 @@ export default function config($stateProvider, $urlRouterProvider) {
             url: '/events/new',
             component: EventCreateComponent.name,
             resolve: {
-                cities: resolveCities
+                cities: resolveCities,
+                foodTypes: resolveFoodTypes
             }
         })
         .state('event', {
@@ -67,7 +73,8 @@ export default function config($stateProvider, $urlRouterProvider) {
             url: '/events/:eventId/edit',
             component: EventEditComponent.name,
             resolve: {
-                event: resolveEvent
+                event: resolveEvent,
+                foodTypes: resolveFoodTypes
             }
         })
         .state('login', {

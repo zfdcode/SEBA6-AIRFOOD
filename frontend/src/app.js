@@ -31,7 +31,7 @@ let app = angular.module('app', [
     UserService.name,
     EventsService.name,
     CityService.name,
-    FoodTypeService.name.
+    FoodTypeService.name,
     AppContent.name,
     ViewEvents.name,
     ViewEvent.name,

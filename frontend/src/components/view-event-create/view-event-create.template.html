@@ -27,7 +27,7 @@
                 <md-icon>
                     <ng-md-icon icon="location_city"></ng-md-icon>
                 </md-icon>
-                <md-select name="repeatSelect" placeholder="City of event" id="citySelect" ng-model="$ctrl.event.city">
+                <md-select placeholder="City of event" id="citySelect" ng-model="$ctrl.event.city" requird="">
                     <md-option ng-repeat="option in $ctrl.cities" value="{{option._id}}">{{option.name}}</md-option>
                 </md-select>
             </md-input-container>
@@ -44,14 +44,8 @@
                 <md-icon>
                     <ng-md-icon icon="local_dining"></ng-md-icon>
                 </md-icon>
-                <md-select placeholder="Food Type" name="foodType" ng-model="$ctrl.event.foodType" required="">
-                    <md-option value="Vegetarian">Vegetarian</md-option>
-                    <md-option value="Steak">Steak</md-option>
-                    <md-option value="Italien">Italien</md-option>
-                    <md-option value="French">French</md-option>
-                    <md-option value="Spanien">Spanien</md-option>
-                    <md-option value="Asian">Asian</md-option>
-                    <md-option value="Secret">Secret Homemade Receipt</md-option>
+                <md-select placeholder="Food Type" id="foodTypeSelect" ng-model="$ctrl.event.foodType" required="">
+                    <md-option ng-repeat="option in $ctrl.foodTypes" value="{{option._id}}">{{option.type}}</md-option>
                 </md-select>
             </md-input-container>
             <md-input-container class="md-icon-float md-block">

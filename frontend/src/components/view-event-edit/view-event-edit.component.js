@@ -35,7 +35,8 @@ class ViewEventEditComponentController{
     cancel()
         {
         this.model = JSON.parse(JSON.stringify(this.event));
-        this.$state.go('events',{});
+        //this.$state.go('events',{});
+        window.history.go(-1);
     };
 
     save()

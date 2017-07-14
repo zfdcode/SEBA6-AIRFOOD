@@ -6,6 +6,7 @@ import template from './view-event-create.template.html';
 import EventsService from './../../services/events/events.service';
 import UserService from './../../services/user/user.service';
 import CityService from './../../services/city/city.service';
+import FoodTypeService from './../../services/foodType/foodType.service'
 
 class ViewEventCreateComponent {
     constructor() {
@@ -13,6 +14,7 @@ class ViewEventCreateComponent {
         this.template = template;
         this.bindings = {
             cities: '<',
+            foodTypes: '<',
         }
     }
 
@@ -22,12 +24,13 @@ class ViewEventCreateComponent {
 }
 
 class ViewEventCreateComponentController {
-    constructor($state, EventsService, UserService, CityService) {
+    constructor($state, EventsService, UserService, CityService, FoodTypeService) {
         this.event = {};
         this.$state = $state;
         this.EventsService = EventsService;
         this.UserService = UserService;
         this.CityService = CityService;
+        this.FoodTypeService = FoodTypeService;
         this.today = new Date();
     }
 
@@ -36,12 +39,15 @@ class ViewEventCreateComponentController {
     }
 
     cancel() {
-        this.$state.go('events', {});
+        //this.$state.go('events', {});
+        window.history.go(-1);
     };
 
     save() {
-        let user = this.UserService.getCurrentUser();
+        console.log(this.event);
 
+        let user = this.UserService.getCurrentUser();
+        debugger;
         this.event['user'] = user['_id'];
         let date = this.event.time;
         this.event.time = date.getFullYear() + "-" + date.getMonth() + "-" + date.getDate();
@@ -53,7 +59,7 @@ class ViewEventCreateComponentController {
     };
 
     static get $inject() {
-        return ['$state', EventsService.name, UserService.name, CityService.name];
+        return ['$state', EventsService.name, UserService.name, CityService.name, FoodTypeService.name];
     }
 
 }
