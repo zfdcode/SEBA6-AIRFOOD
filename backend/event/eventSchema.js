@@ -4,17 +4,14 @@ var mongoose = require('mongoose');
 // Define our event schema
 var Event   = new mongoose.Schema({
     title: String,
-    time: Number,
+    time: Date,
     address: String,
-    user: String,
-    foods: String
-    
-    /*
+    foodType: String,
+    description: String,
     user: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
-    }
-    */
+    },
 });
 
 // Export the Mongoose model

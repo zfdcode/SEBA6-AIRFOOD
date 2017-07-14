@@ -1,11 +1,4 @@
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet">
-<md-card id="searchField" style="
-    position: absolute;
-    top: 20%;
-    left: 0;
-    right: 0;
-" >
+<md-card id="searchField">
     <md-card-title>
         <md-card-title-text>
             <span class="md-headline" layout-align="center center">Find a food-sharing event</span>
@@ -15,21 +8,20 @@
 
     <md-card-content>
         <div layout="row">
-            <i class="material-icons md-36">search</i>
             <md-input-container flex="35">
-                <input type="text" ng-model="$ctrl.inputs.city" type="text" placeholder="Enter city name of event" />
-                <!-- <div ng-messages="inputs.clientName.$error">
-                    <div ng-message="required">This is required. </div>
-                </div> -->
+                <md-icon>
+                    <ng-md-icon icon="search"></ng-md-icon>
+                </md-icon>
+                <md-select name="repeatSelect" placeholder="City of event" id="repeatSelect" ng-model="$ctrl.inputs.city">
+                    <md-option ng-repeat="option in $ctrl.cities" value="{{option._id}}">{{option.name}}</md-option>
+                </md-select>
             </md-input-container>
             <md-input-container flex="25">
                 <label>Date</label>
-                <md-datepicker ng-model="$ctrl.myDate" md-placeholder="Enter date" md-open-on-focus></md-datepicker>
-                <!-- <input type="text" ng-model="$ctrl.inputs.time" type="date" placeholder="Enter event start time" /> -->
+                <md-datepicker ng-model="$ctrl.inputs.time" md-placeholder="Enter date" md-open-on-focus></md-datepicker>
             </md-input-container>
-                <md-input-containe flex="20">
-                <md-select ng-model="$ctrl.inputs.guestCount">
-                    <label>Guest Count</label>
+            <md-input-containe flex="20">
+                <md-select ng-model="$ctrl.inputs.guestCount" placeholder="Guest count of event">
                     <md-option value="1">1</md-option>
                     <md-option value="2">2</md-option>
                     <md-option value="3">3</md-option>
@@ -42,11 +34,12 @@
                     <md-option value="10">10</md-option>
                 </md-select>
             </md-input-containe>
-            <md-button flex class="md-raised md-primary" type="submit" ng-click="$ctrl.searchEvents()" style="
-    height: 40px;
-    margin-top: 15px;
-">Search</md-button>
+            <md-button flex id="home_search" class="md-raised md-primary" type="submit" ng-click="$ctrl.searchEvents()">Search</md-button>
         </div>
     </md-card-content>
 </md-card>
-<script>document.getElementById("searchField").style.backgroundImage="url(images/background.jpg)";</script>
+
+<script>
+    document.getElementById("searchField").style.backgroundImage = "url(images/background.jpg)";
+
+</script>

@@ -27,7 +27,7 @@ class ViewEventComponentController{
         this.$state = $state;
         this.EventsService = EventsService;
         this.UserService = UserService;
-
+        this.user = this.UserService.getCurrentUser();
     }
 
     edit () {

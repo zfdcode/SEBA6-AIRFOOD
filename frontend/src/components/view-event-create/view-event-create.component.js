@@ -5,11 +5,15 @@ import template from './view-event-create.template.html';
 
 import EventsService from './../../services/events/events.service';
 import UserService from './../../services/user/user.service';
+import CityService from './../../services/city/city.service';
 
 class ViewEventCreateComponent {
-    constructor(){
+    constructor() {
         this.controller = ViewEventCreateComponentController;
         this.template = template;
+        this.bindings = {
+            cities: '<',
+        }
     }
 
     static get name() {
@@ -17,38 +21,39 @@ class ViewEventCreateComponent {
     }
 }
 
-class ViewEventCreateComponentController{
-    constructor($state, EventsService,UserService){
+class ViewEventCreateComponentController {
+    constructor($state, EventsService, UserService, CityService) {
         this.event = {};
         this.$state = $state;
         this.EventsService = EventsService;
         this.UserService = UserService;
-        this.myDate = new Date();
-        //this.isOpen = false;
-        this.eventDescription = "";
+        this.CityService = CityService;
+        this.today = new Date();
     }
 
-    uploadFile(){
+    uploadFile() {
         //TODO: uploading process
     }
 
     cancel() {
-        this.$state.go('events',{});
+        this.$state.go('events', {});
     };
 
     save() {
         let user = this.UserService.getCurrentUser();
 
         this.event['user'] = user['_id'];
+        let date = this.event.time;
+        this.event.time = date.getFullYear() + "-" + date.getMonth() + "-" + date.getDate();
         this.EventsService.create(this.event).then(data => {
             let _id = data['_id'];
-            this.$state.go('event',{ eventId:_id});
+            this.$state.go('event', { eventId: _id });
         });
 
     };
 
-    static get $inject(){
-        return ['$state', EventsService.name, UserService.name];
+    static get $inject() {
+        return ['$state', EventsService.name, UserService.name, CityService.name];
     }
 
 }

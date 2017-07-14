@@ -7,7 +7,7 @@
     <md-content class="md-no-momentum">
         <h1> {{$ctrl.event.title}} </h1>
         <br/>
-        <form name="eventForm">
+        <form name="EventForm">
             <md-input-container class="md-icon-float md-block">
                 <label>Title</label>
                 <md-icon><ng-md-icon icon="title" ></ng-md-icon></md-icon>
@@ -16,16 +16,16 @@
             <md-input-container class="md-icon-float md-block">
                 <ng-md-icon icon="date_range"></ng-md-icon>
                 <label>Date</label>
-                <md-datepicker ng-model="$ctrl.myDate" md-hide-icons="calendar" layout-margin="right" md-placeholder="Enter date" md-open-on-focus></md-datepicker>
+                <md-datepicker ng-model="$ctrl.model.time" md-hide-icons="calendar" layout-margin="right" md-placeholder="Enter date" md-open-on-focus></md-datepicker>
                 <!--<input ng-model="$ctrl.event.time" type="text"> -->
             </md-input-container>
             <md-input-container class="md-icon-float md-block">
                 <label>Address</label>
                 <md-icon><ng-md-icon icon="home" ></ng-md-icon></md-icon>
-                <input ng-model="$ctrl.event.address" type="text">
+                <input ng-model="$ctrl.model.address" type="text">
             </md-input-container>
             <md-input-container class="md-icon-float md-block">
-                <md-select ng-model="$ctrl.event.foods">
+                <md-select ng-model="$ctrl.model.foodType">
                     <label>Food Type</label>
                     <md-icon><ng-md-icon icon="local_dining" ></ng-md-icon></md-icon>
                     <md-option value="Vegetarian">Vegetarian</md-option>
@@ -34,7 +34,7 @@
                     <md-option value="French">French</md-option>
                     <md-option value="Spanien">Spanien</md-option>
                     <md-option value="Asian">Asian</md-option>
-                    <md-option value="Asian">Secret Homemade Receipt</md-option>
+                    <md-option value="Secret">Secret Homemade Receipt</md-option>
                 </md-select>
             </md-input-container>
             <md-input-container class="md-icon-float md-block">
