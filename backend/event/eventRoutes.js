@@ -12,7 +12,7 @@ function eventRoutes(passport) {
 
     //middleware
     //TODO:set unless methods
-    router.use(mw.unless({method: ['GET','POST','DELETE','PUT','OPTIONS']}));
+    router.use(mw.unless({method: ['GET','OPTIONS']}));
 
     router.route('/')
         .post(eventController.postEvent)

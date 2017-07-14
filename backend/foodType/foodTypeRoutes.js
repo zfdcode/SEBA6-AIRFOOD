@@ -12,10 +12,13 @@ function foodTypeRoutes(passport) {
 
     //middleware
     //TODO:set unless methods
-    router.use(mw.unless({method: ['GET','POST','DELETE','PUT','OPTIONS']}));
+    router.use(mw.unless({method: ['GET', 'OPTIONS']}));
 
     router.route('/')
         .get(foodTypeController.getFoodTypes);
+
+    router.route('/:foodType_id')
+        .get(foodTypeController.getFoodType);
 
     return router;
 }

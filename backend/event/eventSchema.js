@@ -5,8 +5,15 @@ var mongoose = require('mongoose');
 var Event   = new mongoose.Schema({
     title: String,
     time: Date,
+    city:{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'City'
+    },
     address: String,
-    foodType: String,
+    foodType: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'FoodType'
+    },
     description: String,
     user: {
         type: mongoose.Schema.Types.ObjectId,

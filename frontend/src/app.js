@@ -10,6 +10,7 @@ import ngMdIcons from 'angular-material-icons';
 import EventsService from './services/events/events';
 import UserService from './services/user/user';
 import CityService from './services/city/city';
+import FoodTypeService from './services/foodType/foodType';
 
 import Routes from './config/routes';
 import Middlewares from './config/middlewares';
@@ -30,6 +31,7 @@ let app = angular.module('app', [
     UserService.name,
     EventsService.name,
     CityService.name,
+    FoodTypeService.name.
     AppContent.name,
     ViewEvents.name,
     ViewEvent.name,
@@ -38,8 +40,6 @@ let app = angular.module('app', [
     ViewLogin.name,
     ViewHome.name,
     ViewRegister.name,
-    require("ui-select"),
-    require('angular-sanitize')
 ]);
 
 app.constant('API_URL', 'http://localhost:3000/api');
