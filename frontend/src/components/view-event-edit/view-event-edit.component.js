@@ -4,6 +4,9 @@
 import template from './view-event-edit.template.html';
 
 import EventsService from './../../services/events/events.service';
+import UserService from './../../services/user/user.service';
+import CityService from './../../services/city/city.service';
+import FoodTypeService from './../../services/foodType/foodType.service'
 
 class ViewEventEditComponent {
     constructor(){
@@ -11,6 +14,8 @@ class ViewEventEditComponent {
         this.template = template;
         this.bindings = {
             event: '<',
+            cities: '<',
+            foodTypes: '<',
         }
     }
 
@@ -24,7 +29,7 @@ class ViewEventEditComponentController{
         this.model = {};
         this.$state = $state;
         this.EventsService = EventsService;
-        this.eventDescription = "";
+
     }
     $onInit()
         {
@@ -61,10 +66,6 @@ class ViewEventEditComponentController{
     uploadFile(){
         //TODO: uploading process
     }
-
-    /*onGoogleReady() {
-    angular.bootstrap(document.getElementById("map"), ['app.ui-map']);
-}*/
 
     static get $inject()
         {

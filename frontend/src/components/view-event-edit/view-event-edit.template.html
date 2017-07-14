@@ -1,62 +1,66 @@
-<script type="text/javascript" src="bower_components/angular/angular.js"></script>
-<script type="text/javascript" src="bower_components/angular-ui-event/dist/event.min.js"></script>
-<script type="text/javascript" src="bower_components/angular-ui-map/src/map.js"></script>
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&callback=onGoogleReady"></script>
-
 <div layout="column" layout-padding>
     <md-content class="md-no-momentum">
-        <h1> {{$ctrl.event.title}} </h1>
+        <h1> {{$ctrl.model.title}} </h1>
         <br/>
-        <form name="EventForm">
+        <form name="modelForm">
             <md-input-container class="md-icon-float md-block">
-                <label>Title</label>
-                <md-icon><ng-md-icon icon="title" ></ng-md-icon></md-icon>
-                <input ng-model="$ctrl.model.title" type="text">
+                <md-icon>
+                    <ng-md-icon icon="title"></ng-md-icon>
+                </md-icon>
+                <input name="title" ng-model="$ctrl.model.title" type="text" placeholder="Title" required="">
+                <div ng-messages="modelForm.title.$error" role="alert" multiple="">
+                    <div ng-message="required">Please enter the title of your event.</div>
+                </div>
             </md-input-container>
             <md-input-container class="md-icon-float md-block">
-                <ng-md-icon icon="date_range"></ng-md-icon>
-                <label>Date</label>
-                <md-datepicker ng-model="$ctrl.model.time" md-hide-icons="calendar" layout-margin="right" md-placeholder="Enter date" md-open-on-focus></md-datepicker>
-                <!--<input ng-model="$ctrl.event.time" type="text"> -->
+                <ng-md-icon icon="date_range">
+                </ng-md-icon>
+                <md-datepicker ng-model="$ctrl.model.time" name="dateField" md-min-date="$ctrl.today" md-hide-icons="calendar" layout-margin="right"
+                    md-open-on-focus requird=""></md-datepicker>
+                <div ng-messages="modelForm.dateField.$error">
+                    <div ng-message="valid">The entered value is not a date!</div>
+                    <div ng-message="required">This date is required!</div>
+                    <div ng-message="mindate">Date is too early!</div>
+                </div>
             </md-input-container>
             <md-input-container class="md-icon-float md-block">
-                <label>Address</label>
-                <md-icon><ng-md-icon icon="home" ></ng-md-icon></md-icon>
-                <input ng-model="$ctrl.model.address" type="text">
-            </md-input-container>
-            <md-input-container class="md-icon-float md-block">
-                <md-select ng-model="$ctrl.model.foodType">
-                    <label>Food Type</label>
-                    <md-icon><ng-md-icon icon="local_dining" ></ng-md-icon></md-icon>
-                    <md-option value="Vegetarian">Vegetarian</md-option>
-                    <md-option value="Steak">Steak</md-option>
-                    <md-option value="Italien">Italien</md-option>
-                    <md-option value="French">French</md-option>
-                    <md-option value="Spanien">Spanien</md-option>
-                    <md-option value="Asian">Asian</md-option>
-                    <md-option value="Secret">Secret Homemade Receipt</md-option>
+                <md-icon>
+                    <ng-md-icon icon="location_city"></ng-md-icon>
+                </md-icon>
+                <md-select placeholder="City of event" id="citySelect" ng-model="$ctrl.model.city" requird="">
+                    <md-option ng-repeat="option in $ctrl.cities" value="{{option._id}}">{{option.name}}</md-option>
                 </md-select>
             </md-input-container>
             <md-input-container class="md-icon-float md-block">
-                <input type="text" ng-model="$ctrl.eventDescription" md-maxlength="250" placeholder="Event Description: Briefly describe your event and give some advices" />
+                <md-icon>
+                    <ng-md-icon icon="home"></ng-md-icon>
+                </md-icon>
+                <input name="address" placeholder="Address" ng-model="$ctrl.model.address" type="text" required="">
+                <div ng-messages="modelForm.address.$error" role="alert" multiple="">
+                    <div ng-message="required">Please enter the address of your event.</div>
+                </div>
             </md-input-container>
-            <!--<md-input-container class="md-block">
-                <label>Food Type</label>
-                <md-icon><ng-md-icon icon="local_dining" ></ng-md-icon></md-icon>
-                <textarea ng-model="$ctrl.event.foods" md-maxlength="1000" rows="8" md-select-on-focus></textarea>
-            </md-input-container> -->
+            <md-input-container class="md-icon-float md-block">
+                <md-icon>
+                    <ng-md-icon icon="local_dining"></ng-md-icon>
+                </md-icon>
+                <md-select placeholder="Food Type" id="foodTypeSelect" ng-model="$ctrl.model.foodType" required="">
+                    <md-option ng-repeat="option in $ctrl.foodTypes" value="{{option._id}}">{{option.type}}</md-option>
+                </md-select>
+            </md-input-container>
+            <md-input-container class="md-icon-float md-block">
+                <md-icon>
+                    <ng-md-icon icon="event_note"></ng-md-icon>
+                </md-icon>
+                <textarea type="text" name="description" ng-model="$ctrl.model.description" md-maxlength="250" rows="3" md-select-on-focus
+                    placeholder="Event Description: Briefly describe your event and give some advices"></textarea>
+            </md-input-container>
             <div>
+                <ng-md-icon icon="file_upload"></ng-md-icon>
                 <label>Upload Photos</label>
-                <md-icon><ng-md-icon icon="file_upload" ></ng-md-icon></md-icon>
-                <input type = "file" file-model = "myFile"/>
-                <md-button class="md-raised md-primary" ng-click = "$ctrl.uploadFile()">Upload</md-button>
+                <input type="file" file-model="myFile" />
+                <md-button class="md-raised md-primary" ng-click="$ctrl.uploadFile()">Select Image</md-button>
             </div>
-            <!-- google map
-            <div>
-                <section id="map" ng-controller="MapCtrl" >
-                <div ui-map="myMap" ui-options="mapOptions" class="map-canvas"></div>
-                </section>
-            </div> -->
             <div layout="row">
                 <span flex></span>
                 <md-button class="md-raised md-primary" type="submit" ng-click="$ctrl.save()">Save</md-button>

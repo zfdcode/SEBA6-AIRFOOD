@@ -25,7 +25,7 @@ class ViewEventCreateComponent {
 
 class ViewEventCreateComponentController {
     constructor($state, EventsService, UserService, CityService, FoodTypeService) {
-        this.event = {};
+        this.model = {};
         this.$state = $state;
         this.EventsService = EventsService;
         this.UserService = UserService;
@@ -44,14 +44,14 @@ class ViewEventCreateComponentController {
     };
 
     save() {
-        console.log(this.event);
+        console.log(this.model);
 
         let user = this.UserService.getCurrentUser();
         debugger;
-        this.event['user'] = user['_id'];
-        let date = this.event.time;
-        this.event.time = date.getFullYear() + "-" + date.getMonth() + "-" + date.getDate();
-        this.EventsService.create(this.event).then(data => {
+        this.model['user'] = user['_id'];
+        let date = this.model.time;
+        this.model.time = date.getFullYear() + "-" + date.getMonth() + "-" + date.getDate();
+        this.EventsService.create(this.model).then(data => {
             let _id = data['_id'];
             this.$state.go('event', { eventId: _id });
         });

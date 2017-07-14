@@ -1,23 +1,23 @@
 <div layout="column" layout-padding>
     <md-content class="md-no-momentum">
-        <h1> {{$ctrl.event.title}} </h1>
+        <h1> {{$ctrl.model.title}} </h1>
         <br/>
-        <form name="EventForm">
+        <form name="modelForm">
             <md-input-container class="md-icon-float md-block">
                 <md-icon>
                     <ng-md-icon icon="title"></ng-md-icon>
                 </md-icon>
-                <input name="title" ng-model="$ctrl.event.title" type="text" placeholder="Title" required="">
-                <div ng-messages="EventForm.title.$error" role="alert" multiple="">
+                <input name="title" ng-model="$ctrl.model.title" type="text" placeholder="Title" required="">
+                <div ng-messages="modelForm.title.$error" role="alert" multiple="">
                     <div ng-message="required">Please enter the title of your event.</div>
                 </div>
             </md-input-container>
             <md-input-container class="md-icon-float md-block">
                 <ng-md-icon icon="date_range">
                 </ng-md-icon>
-                <md-datepicker ng-model="$ctrl.event.time" name="dateField" md-min-date="$ctrl.today" md-hide-icons="calendar" layout-margin="right"
+                <md-datepicker ng-model="$ctrl.model.time" name="dateField" md-min-date="$ctrl.today" md-hide-icons="calendar" layout-margin="right"
                     md-open-on-focus requird=""></md-datepicker>
-                <div ng-messages="EventForm.dateField.$error">
+                <div ng-messages="modelForm.dateField.$error">
                     <div ng-message="valid">The entered value is not a date!</div>
                     <div ng-message="required">This date is required!</div>
                     <div ng-message="mindate">Date is too early!</div>
@@ -27,7 +27,7 @@
                 <md-icon>
                     <ng-md-icon icon="location_city"></ng-md-icon>
                 </md-icon>
-                <md-select placeholder="City of event" id="citySelect" ng-model="$ctrl.event.city" requird="">
+                <md-select placeholder="City of event" id="citySelect" ng-model="$ctrl.model.city" requird="">
                     <md-option ng-repeat="option in $ctrl.cities" value="{{option._id}}">{{option.name}}</md-option>
                 </md-select>
             </md-input-container>
@@ -35,8 +35,8 @@
                 <md-icon>
                     <ng-md-icon icon="home"></ng-md-icon>
                 </md-icon>
-                <input name="address" placeholder="Address" ng-model="$ctrl.event.address" type="text" required="">
-                <div ng-messages="EventForm.address.$error" role="alert" multiple="">
+                <input name="address" placeholder="Address" ng-model="$ctrl.model.address" type="text" required="">
+                <div ng-messages="modelForm.address.$error" role="alert" multiple="">
                     <div ng-message="required">Please enter the address of your event.</div>
                 </div>
             </md-input-container>
@@ -44,7 +44,7 @@
                 <md-icon>
                     <ng-md-icon icon="local_dining"></ng-md-icon>
                 </md-icon>
-                <md-select placeholder="Food Type" id="foodTypeSelect" ng-model="$ctrl.event.foodType" required="">
+                <md-select placeholder="Food Type" id="foodTypeSelect" ng-model="$ctrl.model.foodType" required="">
                     <md-option ng-repeat="option in $ctrl.foodTypes" value="{{option._id}}">{{option.type}}</md-option>
                 </md-select>
             </md-input-container>
@@ -52,7 +52,7 @@
                 <md-icon>
                     <ng-md-icon icon="event_note"></ng-md-icon>
                 </md-icon>
-                <textarea type="text" name="description" ng-model="$ctrl.event.description" md-maxlength="250" rows="3" md-select-on-focus
+                <textarea type="text" name="description" ng-model="$ctrl.model.description" md-maxlength="250" rows="3" md-select-on-focus
                     placeholder="Event Description: Briefly describe your event and give some advices"></textarea>
             </md-input-container>
             <div>
