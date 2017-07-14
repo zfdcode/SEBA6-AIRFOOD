@@ -1,26 +1,34 @@
-<md-card id="searchField">
-    <md-card-title>
-        <md-card-title-text>
-            <span class="md-headline" layout-align="center center">Find a food-sharing event</span>
-            <span class="md-subhead" layout-align="center center">Where is the FOOD?</span>
-        </md-card-title-text>
-    </md-card-title>
-
-    <md-card-content>
-        <div layout="row">
-            <md-input-container flex="35">
+<form name="inputForm">
+    <md-card id="searchField">
+        <md-card-title>
+            <md-card-title-text>
+                <span class="md-headline" layout-align="center center">Find a food-sharing event</span>
+                <span class="md-subhead" layout-align="center center">Where is the FOOD?</span>
+            </md-card-title-text>
+        </md-card-title>
+        <md-card-content layout="row">
+            <md-input-container>
                 <md-icon>
                     <ng-md-icon icon="search"></ng-md-icon>
                 </md-icon>
-                <md-select name="repeatSelect" placeholder="City of event" id="repeatSelect" ng-model="$ctrl.inputs.city">
+                <md-select name="repeatSelect" placeholder="City of event" id="repeatSelect" ng-model="$ctrl.inputs.city" required>
                     <md-option ng-repeat="option in $ctrl.cities" value="{{option._id}}">{{option.name}}</md-option>
                 </md-select>
+                <div ng-messages="inputForm.repeatSelect.$error">
+                    <div ng-message="required">City is required</div>
+                </div>
             </md-input-container>
-            <md-input-container flex="25">
-                <md-datepicker ng-model="$ctrl.inputs.time" md-placeholder="Enter date" md-open-on-focus></md-datepicker>
+            <md-input-container>
+                <md-datepicker type="date" name="event_date" ng-model="$ctrl.inputs.time" md-placeholder="Enter date" md-min-date="$ctrl.today"
+                    md-open-on-focus required></md-datepicker>
+                <div ng-messages="inputForm.event_date.$error">
+                    <div ng-message="valid">The entered value is not a date - {{$ctrl.inputs.time}}!</div>
+                    <div ng-message="required">This date is required!</div>
+                    <div ng-message="mindate">Date is too early for {{$ctrl.today}}!</div>
+                </div>
             </md-input-container>
-            <md-input-containe flex="20">
-                <md-select ng-model="$ctrl.inputs.guestCount" placeholder="Guest count of event">
+            <md-input-container>
+                <md-select name="questCountSelect" ng-model="$ctrl.inputs.guestCount" placeholder="Guest count of event" required>
                     <md-option value="1">1</md-option>
                     <md-option value="2">2</md-option>
                     <md-option value="3">3</md-option>
@@ -32,11 +40,14 @@
                     <md-option value="9">9</md-option>
                     <md-option value="10">10</md-option>
                 </md-select>
-            </md-input-containe>
-            <md-button flex id="home_search" class="md-raised md-primary" type="submit" ng-click="$ctrl.searchEvents()">Search</md-button>
-        </div>
-    </md-card-content>
-</md-card>
+                <div ng-messages="inputForm.questCountSelect.$error">
+                    <div ng-message="required">Guest count is required!</div>
+                </div>
+            </md-input-container>
+            <md-button id="home_search" class="md-raised md-primary" type="submit" ng-click="$ctrl.searchEvents()">Search</md-button>
+        </md-card-content>
+    </md-card>
+</form>
 
 <script>
     document.getElementById("searchField").style.backgroundImage = "url(images/background.jpg)";

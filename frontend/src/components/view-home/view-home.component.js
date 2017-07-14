@@ -23,6 +23,7 @@ class ViewHomeComponentController {
         this.$state = $state;
         this.inputs = {};
         this.CityService = CityService;
+        this.today=new Date();
     }
 
     searchEvents() {
