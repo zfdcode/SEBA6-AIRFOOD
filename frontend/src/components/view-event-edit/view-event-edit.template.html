@@ -18,9 +18,9 @@
                 <md-datepicker ng-model="$ctrl.model.time" name="dateField" md-min-date="$ctrl.today" md-hide-icons="calendar" layout-margin="right"
                     md-open-on-focus requird=""></md-datepicker>
                 <div ng-messages="modelForm.dateField.$error">
-                    <div ng-message="valid">The entered value is not a date!</div>
+                    <div ng-message="valid">The entered value is not a date - {{$ctrl.model.time}}!</div>
                     <div ng-message="required">This date is required!</div>
-                    <div ng-message="mindate">Date is too early!</div>
+                    <div ng-message="mindate">Date is too early for {{$ctrl.today}}!</div>
                 </div>
             </md-input-container>
             <md-input-container class="md-icon-float md-block">
@@ -48,6 +48,20 @@
                     <md-option ng-repeat="option in $ctrl.foodTypes" value="{{option._id}}">{{option.type}}</md-option>
                 </md-select>
             </md-input-container>
+            <md-input-containe>
+                <md-select ng-model="$ctrl.model.guestCount" placeholder="Guest count of event" required="">
+                    <md-option value="1">1</md-option>
+                    <md-option value="2">2</md-option>
+                    <md-option value="3">3</md-option>
+                    <md-option value="4">4</md-option>
+                    <md-option value="5">5</md-option>
+                    <md-option value="6">6</md-option>
+                    <md-option value="7">7</md-option>
+                    <md-option value="8">8</md-option>
+                    <md-option value="9">9</md-option>
+                    <md-option value="10">10</md-option>
+                </md-select>
+            </md-input-containe>
             <md-input-container class="md-icon-float md-block">
                 <md-icon>
                     <ng-md-icon icon="event_note"></ng-md-icon>

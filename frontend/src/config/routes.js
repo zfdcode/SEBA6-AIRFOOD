@@ -74,6 +74,7 @@ export default function config($stateProvider, $urlRouterProvider) {
             component: EventEditComponent.name,
             resolve: {
                 event: resolveEvent,
+                cities: resolveCities,
                 foodTypes: resolveFoodTypes
             }
         })

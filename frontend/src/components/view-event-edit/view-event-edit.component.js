@@ -29,7 +29,10 @@ class ViewEventEditComponentController{
         this.model = {};
         this.$state = $state;
         this.EventsService = EventsService;
-
+        this.UserService = UserService;
+        this.CityService = CityService;
+        this.FoodTypeService = FoodTypeService;
+        this.today = new Date();
     }
     $onInit()
         {
@@ -69,7 +72,7 @@ class ViewEventEditComponentController{
 
     static get $inject()
         {
-        return ['$state', EventsService.name];
+        return ['$state', EventsService.name, UserService.name, CityService.name, FoodTypeService.name];
     }
 
 }
