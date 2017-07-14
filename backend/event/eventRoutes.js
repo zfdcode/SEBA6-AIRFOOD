@@ -18,6 +18,9 @@ function eventRoutes(passport) {
         .post(eventController.postEvent)
         .get(eventController.getEvents);
 
+    router.route('/city=:city&date=:date&guestCount=:guestCount')
+        .get(eventController.getEventsByFilter);
+
     router.route('/:event_id')
         .get(eventController.getEvent)
         .put(eventController.putEvent)

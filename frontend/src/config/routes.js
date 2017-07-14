@@ -18,9 +18,9 @@ function resolveEvent($stateParams, eventsService) {
     return eventsService.get($stateParams.eventId);
 }
 
-resolveEvents.$inject = [EventsService.name];
-function resolveEvents(eventsService) {
-    return eventsService.list();
+resolveEvents.$inject = ['$stateParams', EventsService.name];
+function resolveEvents($stateParams, eventsService) {
+    return eventsService.list($stateParams.city,$stateParams.date,$stateParams.guestCount);
 }
 
 resolveCities.$inject = [CityService.name];
