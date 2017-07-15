@@ -3,23 +3,23 @@
 
 export default class EventsService {
 
-    static get $inject(){
+    static get $inject() {
         return ['$http', 'API_URL'];
     }
 
-    constructor($http,API_URL) {
+    constructor($http, API_URL) {
         this.$http = $http;
-        this.resourceUrl = `${ API_URL }/events/`;
+        this.resourceUrl = `${API_URL}/events/`;
     }
 
-    static get name(){
+    static get name() {
         return 'eventsService';
     }
 
-    list(city,date,guestCount) {
-        city=city==null?"":`city=${city}&`;
-        date=date==null?"":`date=${date}&`;
-        guestCount=guestCount==null?"":`guestCount=${guestCount}`;
+    list(city, date, guestCount) {
+        city = city == null ? "" : `city=${city}&`;
+        date = date == null ? "" : `date=${date}&`;
+        guestCount = guestCount == null ? "" : `guestCount=${guestCount}`;
         let url = `${this.resourceUrl}${city}${date}${guestCount}`;
         console.log(url);
         return this.$http.get(url).then(responce => {
@@ -29,8 +29,28 @@ export default class EventsService {
         });
     }
 
+    getEventsAsHost(userId) {
+        let url = `${this.resourceUrl}user=${userId}`;
+        console.log(url);
+        return this.$http.get(url).then(responce => {
+            return new Promise((resolve, reject) => {
+                resolve(responce.date);
+            });
+        });
+    }
+
+    getEventsAsGuest(userId) {
+        let url = `${this.resourceUrl}guest=${userId}`;
+        console.log(url);
+        return this.$http.get(url).then(responce => {
+            return new Promise((resolve, reject) => {
+                resolve(responce.date);
+            });
+        });
+    }
+
     get(id) {
-        let url = `${ this.resourceUrl }${ id }`;
+        let url = `${this.resourceUrl}${id}`;
         return this.$http.get(url).then(responce => {
             return new Promise((resolve, reject) => {
                 resolve(responce.data);
@@ -40,7 +60,7 @@ export default class EventsService {
 
     create(event) {
         let url = this.resourceUrl;
-        return this.$http.post(url,event).then(responce => {
+        return this.$http.post(url, event).then(responce => {
             return new Promise((resolve, reject) => {
                 resolve(responce.data);
             });
@@ -48,7 +68,7 @@ export default class EventsService {
     }
 
     delete(id) {
-        let url = `${ this.resourceUrl }${ id }`;
+        let url = `${this.resourceUrl}${id}`;
         return this.$http.delete(url).then(responce => {
             return new Promise((resolve, reject) => {
                 resolve(responce.status);
@@ -58,8 +78,8 @@ export default class EventsService {
 
     update(event) {
 
-        let url = `${ this.resourceUrl }${ event['_id'] }`;
-        return this.$http.put(url,event).then(responce => {
+        let url = `${this.resourceUrl}${event['_id']}`;
+        return this.$http.put(url, event).then(responce => {
             return new Promise((resolve, reject) => {
                 resolve(responce.data);
             });

@@ -8,10 +8,12 @@ import LoginComponent from './../components/view-login/view-login.component';
 import HomeComponent from './../components/view-home/view-home.component';
 import RegisterComponent from './../components/view-register/view-register.component';
 import ErrorComponent from './../components/view-error/view-error.component';
+import ProfileComponent from './../components/view-profile/view-profile.component';
 
 import EventsService from './../services/events/events.service';
-import CityService from './../services/city/city.service'; 
-import FoodTypeService from './../services/foodType/foodType.service'; 
+import CityService from './../services/city/city.service';
+import FoodTypeService from './../services/foodType/foodType.service';
+import UserService from './../services/user/user.service';
 
 
 resolveEvent.$inject = ['$stateParams', EventsService.name];
@@ -21,7 +23,24 @@ function resolveEvent($stateParams, eventsService) {
 
 resolveEvents.$inject = ['$stateParams', EventsService.name];
 function resolveEvents($stateParams, eventsService) {
-    return eventsService.list($stateParams.city,$stateParams.date,$stateParams.guestCount);
+    return eventsService.list($stateParams.city, $stateParams.date, $stateParams.guestCount);
+}
+
+resolveEventsAsHost.$inject = ['$stateParams', EventsService.name, UserService.name];
+function resolveEventsAsHost($stateParams, eventsService, userService) {
+    let user = userService.getCurrentUser();
+    return eventsService.getEventsAsHost(user._id);
+}
+
+resolveEventsAsHost.$inject = ['$stateParams', EventsService.name, UserService.name];
+function resolveEventsAsGuest($stateParams, eventsService, userService) {
+    let guest = userService.getCurrentUser();
+    return eventsService.getEventsAsGuest(guest._id);
+}
+
+resolveEvents.$inject = ['$stateParams', EventsService.name];
+function resolveEvents($stateParams, eventsService) {
+    return eventsService.list($stateParams.city, $stateParams.date, $stateParams.guestCount);
 }
 
 resolveCities.$inject = [CityService.name];
@@ -46,6 +65,14 @@ export default function config($stateProvider, $urlRouterProvider) {
             component: HomeComponent.name,
             resolve: {
                 cities: resolveCities
+            }
+        })
+        .state('profile', {
+            url: '/profile',
+            component: ProfileComponent.name,
+            resolve: {
+                eventsAsHost: resolveEventsAsHost,
+                eventsAsGuest: resolveEventsAsGuest
             }
         })
         .state('events', {

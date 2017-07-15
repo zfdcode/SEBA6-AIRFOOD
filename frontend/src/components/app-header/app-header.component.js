@@ -8,7 +8,7 @@ import template from './app-header.template.html';
 import './app-header.style.css';
 
 class AppHeaderComponent {
-    constructor(){
+    constructor() {
         this.controller = AppHeaderComponentController;
         this.template = template;
 
@@ -18,11 +18,10 @@ class AppHeaderComponent {
         return 'appHeader';
     }
 
-
 }
 
-class AppHeaderComponentController{
-    constructor($state,UserService){
+class AppHeaderComponentController {
+    constructor($state, UserService) {
         this.$state = $state;
         this.UserService = UserService;
 
@@ -32,34 +31,38 @@ class AppHeaderComponentController{
         $mdMenu.open(ev);
     }
 
-    isAuthenticated(){
+    isAuthenticated() {
         return this.UserService.isAuthenticated();
     }
 
-    getCurrentUser(){
+    getCurrentUser() {
         let user = this.UserService.getCurrentUser();
         return user.username;
     }
 
-
-    goHome(){
-        this.$state.go('movies',{});
+    goProfile() {
+        let user = this.UserService.getCurrentUser();
+        this.$state.go("profile",{});
     }
 
-    login(){
-        this.$state.go('login',{});
+    goHome() {
+        this.$state.go('home', {});
     }
 
-    register(){
-        this.$state.go('register',{});
+    login() {
+        this.$state.go('login', {});
     }
 
-    logout(){
+    register() {
+        this.$state.go('register', {});
+    }
+
+    logout() {
         this.UserService.logout();
-        this.$state.go('movies',{});
+        this.$state.go('home', {});
     }
 
-    static get $inject(){
+    static get $inject() {
         return ['$state', UserService.name];
     }
 

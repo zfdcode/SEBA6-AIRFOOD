@@ -25,6 +25,7 @@ import ViewLogin from './components/view-login/view-login';
 import ViewHome from './components/view-home/view-home';
 import ViewRegister from './components/view-register/view-register';
 import ViewError from './components/view-error/view-error';
+import ViewProfile from './components/view-profile/view-profile';
 
 let app = angular.module('app', [
     uiRouter,
@@ -44,6 +45,7 @@ let app = angular.module('app', [
     ViewHome.name,
     ViewRegister.name,
     ViewError.name,
+    ViewProfile.name,
 ]);
 
 app.constant('API_URL', 'http://localhost:3000/api');
