@@ -37,9 +37,19 @@ class ViewEventComponentController {
 
     bookEvent() {
         //TODO:
+        this.event.isOpen=false;
+        this.event['guest'] = this.user._id
+        element.toggleClass("btn-active");
+        if(this.event.isOpen==false){
+            scope.buttonText="Book";
+            scope.isOpen=false;
+        } else {
+            scope.buttonText ="Is Booked";
+            this.event.isOpen=true;
+        }
         console.log(this.event._id);
         console.log(this.event);
-        //this.event['guest'] = this.user._id
+        
         //this.event.isOpen=false
         //this.EventsService.update(this.event).then()...
     }
