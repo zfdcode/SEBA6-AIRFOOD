@@ -1,15 +1,16 @@
 
 'use strict';
-import EventsService from './../../services/events/events.service';
-import UserService from './../../services/user/user.service';
 
 import template from './view-profile.template.html';
+
+import EventsService from './../../services/events/events.service';
+import UserService from './../../services/user/user.service';
 
 class ViewProfileComponent {
     constructor() {
         this.controller = ViewProfileComponentController;
         this.template = template;
-        this.bidings = {
+        this.bindings = {
             eventsAsHost: '<',
             eventsAsGuest: '<'
         };
@@ -26,7 +27,11 @@ class ViewProfileComponentController {
         this.$state = $state;
         this.EventsService = EventsService;
         this.UserService = UserService;
-        this.user = this.UserService.getCurrentUser();
+    }
+
+    getCurrentUser() {
+        let user = this.UserService.getCurrentUser();
+        return user._id;
     }
 
     details(event) {
@@ -56,7 +61,7 @@ class ViewProfileComponentController {
     };
 
     static get $inject() {
-        return ['$state', UserService.name, EventsService.name];
+        return ['$state', EventsService.name, UserService.name];
     }
 
 }

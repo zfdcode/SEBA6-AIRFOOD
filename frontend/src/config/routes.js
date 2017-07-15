@@ -18,6 +18,7 @@ import UserService from './../services/user/user.service';
 
 resolveEvent.$inject = ['$stateParams', EventsService.name];
 function resolveEvent($stateParams, eventsService) {
+    console.log("aaa");
     return eventsService.get($stateParams.eventId);
 }
 
@@ -36,11 +37,6 @@ resolveEventsAsHost.$inject = ['$stateParams', EventsService.name, UserService.n
 function resolveEventsAsGuest($stateParams, eventsService, userService) {
     let guest = userService.getCurrentUser();
     return eventsService.getEventsAsGuest(guest._id);
-}
-
-resolveEvents.$inject = ['$stateParams', EventsService.name];
-function resolveEvents($stateParams, eventsService) {
-    return eventsService.list($stateParams.city, $stateParams.date, $stateParams.guestCount);
 }
 
 resolveCities.$inject = [CityService.name];

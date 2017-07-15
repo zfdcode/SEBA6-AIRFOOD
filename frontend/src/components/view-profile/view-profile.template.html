@@ -1,21 +1,61 @@
-<md-list>
-    <md-list-item aria-label="Event" ng-click="$ctrl.details(event)" class="noright" ng-repeat="event in $ctrl.eventsAsHost">
-        <md-icon>
-            <ng-md-icon icon="insert_drive_file"></ng-md-icon>
-        </md-icon>
-        <p> {{event.title}} </p>
-        <md-button class="md-icon-button" aria-label="Edit Item" ng-click="$ctrl.edit(event)">
-            <md-icon>
-                <ng-md-icon icon="mode_edit"></ng-md-icon>
-            </md-icon>
-        </md-button>
+<md-card id="hostEvent">
+    <md-card-title>
+        <md-card-title-text>
+            <span class="md-headline" layout-align="center center">You created this events</span>
+        </md-card-title-text>
+    </md-card-title>
+    <md-card-content>
+        <md-list>
+            <md-list-item aria-label="Event" ng-click="$ctrl.details(event)" class="noright" ng-repeat="event in $ctrl.eventsAsHost">
+                <md-icon>
+                    <ng-md-icon icon="insert_drive_file"></ng-md-icon>
+                </md-icon>
+                <p> {{event.title}} </p>
+                <md-button class="md-icon-button" aria-label="Edit Item" ng-click="$ctrl.edit(event)">
+                    <md-icon>
+                        <ng-md-icon icon="mode_edit"></ng-md-icon>
+                    </md-icon>
+                </md-button>
 
-        <md-button class="md-icon-button" aria-label="Delete Item" ng-click="$ctrl.delete(event)">
-            <md-icon>
-                <ng-md-icon icon="delete"></ng-md-icon>
-            </md-icon>
-        </md-button>
-        <md-divider ng-if="!$last"></md-divider>
-    </md-list-item>
-    <md-divider></md-divider>
-</md-list>
+                <md-button class="md-icon-button" aria-label="Delete Item" ng-click="$ctrl.delete(event)">
+                    <md-icon>
+                        <ng-md-icon icon="delete"></ng-md-icon>
+                    </md-icon>
+                </md-button>
+                <md-divider ng-if="!$last"></md-divider>
+            </md-list-item>
+            <md-divider></md-divider>
+        </md-list>
+    </md-card-content>
+</md-card>
+
+<md-card id="guestEvent">
+    <md-card-title>
+        <md-card-title-text>
+            <span class="md-headline" layout-align="center center">You booked this events</span>
+        </md-card-title-text>
+    </md-card-title>
+    <md-card-content>
+        <md-list>
+            <md-list-item aria-label="Event" ng-click="$ctrl.details(event)" class="noright" ng-repeat="event in $ctrl.eventsAsGuest">
+                <md-icon>
+                    <ng-md-icon icon="insert_drive_file"></ng-md-icon>
+                </md-icon>
+                <p> {{event.title}} </p>
+                <md-button class="md-icon-button" aria-label="Edit Item" ng-click="$ctrl.edit(event)" ng-if="$ctrl.getCurrentUser()==event.user">
+                    <md-icon>
+                        <ng-md-icon icon="mode_edit"></ng-md-icon>
+                    </md-icon>
+                </md-button>
+
+                <md-button class="md-icon-button" aria-label="Delete Item" ng-click="$ctrl.delete(event)" ng-if="$ctrl.getCurrentUser()==event.user">
+                    <md-icon>
+                        <ng-md-icon icon="delete"></ng-md-icon>
+                    </md-icon>
+                </md-button>
+                <md-divider ng-if="!$last"></md-divider>
+            </md-list-item>
+            <md-divider></md-divider>
+        </md-list>
+    </md-card-content>
+</md-card>

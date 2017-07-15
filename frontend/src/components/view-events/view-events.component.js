@@ -6,46 +6,46 @@ import EventsService from './../../services/events/events.service';
 import UserService from './../../services/user/user.service';
 
 class ViewEventsComponent {
-    constructor(){
+    constructor() {
         this.controller = ViewEventsComponentController;
         this.template = template;
         this.bindings = {
             events: '<',
         }
-    } 
+    }
 
     static get name() {
         return 'viewEvents';
     }
 }
 
-class ViewEventsComponentController{
-    constructor($state,EventsService,UserService){
+class ViewEventsComponentController {
+    constructor($state, EventsService, UserService) {
         this.$state = $state;
         this.EventsService = EventsService;
         this.UserService = UserService;
         this.user = this.UserService.getCurrentUser();
     }
 
-    details (event) {
+    details(event) {
         let _id = event['_id'];
-        this.$state.go('event',{ eventId:_id});
+        this.$state.go('event', { eventId: _id });
     };
 
-    edit (event) {
+    edit(event) {
         if (this.UserService.isAuthenticated()) {
             let _id = event['_id'];
-            this.$state.go('eventEdit',{ eventId:_id});
+            this.$state.go('eventEdit', { eventId: _id });
         } else {
-            this.$state.go('login',{});
+            this.$state.go('login', {});
         }
     };
 
-    newEvent(){
+    newEvent() {
         if (this.UserService.isAuthenticated()) {
-            this.$state.go('eventAdd',{});
+            this.$state.go('eventAdd', {});
         } else {
-            this.$state.go('login',{});
+            this.$state.go('login', {});
         }
     }
 
@@ -58,12 +58,12 @@ class ViewEventsComponentController{
                 this.events.splice(index, 1);
             })
         } else {
-            this.$state.go('login',{});
+            this.$state.go('login', {});
         }
     };
 
 
-    static get $inject(){
+    static get $inject() {
         return ['$state', EventsService.name, UserService.name];
     }
 }

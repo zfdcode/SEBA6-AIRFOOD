@@ -34,7 +34,7 @@ export default class EventsService {
         console.log(url);
         return this.$http.get(url).then(responce => {
             return new Promise((resolve, reject) => {
-                resolve(responce.date);
+                resolve(responce.data);
             });
         });
     }
@@ -44,7 +44,7 @@ export default class EventsService {
         console.log(url);
         return this.$http.get(url).then(responce => {
             return new Promise((resolve, reject) => {
-                resolve(responce.date);
+                resolve(responce.data);
             });
         });
     }
