@@ -33,6 +33,7 @@ class ViewEventEditComponentController {
         this.CityService = CityService;
         this.FoodTypeService = FoodTypeService;
         this.today = new Date();
+        this.eventTime= new Date();
     }
     $onInit() {
         //Clone the Event Data
