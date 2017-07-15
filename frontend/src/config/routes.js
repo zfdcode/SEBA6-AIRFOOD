@@ -18,7 +18,6 @@ import UserService from './../services/user/user.service';
 
 resolveEvent.$inject = ['$stateParams', EventsService.name];
 function resolveEvent($stateParams, eventsService) {
-    console.log("aaa");
     return eventsService.get($stateParams.eventId);
 }
 

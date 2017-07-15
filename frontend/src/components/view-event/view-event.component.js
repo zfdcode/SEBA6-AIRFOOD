@@ -6,60 +6,58 @@ import EventsService from './../../services/events/events.service';
 import UserService from './../../services/user/user.service';
 
 class ViewEventComponent {
-    constructor(){
+    constructor() {
         this.controller = ViewEventComponentController;
         this.template = template;
         this.bindings = {
             event: '<',
         }
-
     }
-
     static get name() {
         return 'viewEvent';
     }
-
-
 }
 
-class ViewEventComponentController{
-    constructor($state,EventsService,UserService){
+class ViewEventComponentController {
+    constructor($state, EventsService, UserService) {
         this.$state = $state;
         this.EventsService = EventsService;
         this.UserService = UserService;
         this.user = this.UserService.getCurrentUser();
     }
 
-    edit () {
+    edit() {
         if (this.UserService.isAuthenticated()) {
             let _id = this.event['_id'];
-            this.$state.go('eventEdit',{ eventId:_id});
+            this.$state.go('eventEdit', { eventId: _id });
         } else {
-            this.$state.go('login',{});
+            this.$state.go('login', {});
         }
     };
 
-    bookEvent (){
+    bookEvent() {
         //TODO:
-        this.event['guest']=this.user._id
+        console.log(this.event._id);
+        console.log(this.event);
+        //this.event['guest'] = this.user._id
         //this.event.isOpen=false
         //this.EventsService.update(this.event).then()...
-    } 
+    }
 
 
     delete() {
         if (this.UserService.isAuthenticated()) {
             let _id = this.event['_id'];
             this.EventsService.delete(_id).then(response => {
-                this.$state.go('events',{});
+                this.$state.go('events', {});
             });
         } else {
-            this.$state.go('login',{});
+            this.$state.go('login', {});
         }
     };
 
 
-    getPosterURL(){
+    getPosterURL() {
         let posterURL = 'http://placehold.it/32x32';
         if (this.event.hasOwnProperty('posters')) {
             if (this.event.posters.hasOwnProperty('thumbnail')) {
@@ -75,7 +73,7 @@ class ViewEventComponentController{
         return posterURL;
     }
 
-    static get $inject(){
+    static get $inject() {
         return ['$state', EventsService.name, UserService.name];
     }
 

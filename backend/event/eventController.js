@@ -75,7 +75,7 @@ exports.getEventsByGuest = function (req, res) {
 exports.getEvent = function (req, res) {
     // Use the Event model to find a specific event
 
-    Event.find({ _id: req.params.event_id }, function (err, event) {
+    Event.findById(req.params.event_id, function (err, event) {
         if (err) {
             res.status(400).send(err)
             return;
