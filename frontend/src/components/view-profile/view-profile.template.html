@@ -11,17 +11,6 @@
                     <ng-md-icon icon="insert_drive_file"></ng-md-icon>
                 </md-icon>
                 <p> {{event.title}} </p>
-                <md-button class="md-icon-button" aria-label="Edit Item" ng-click="$ctrl.edit(event)">
-                    <md-icon>
-                        <ng-md-icon icon="mode_edit"></ng-md-icon>
-                    </md-icon>
-                </md-button>
-
-                <md-button class="md-icon-button" aria-label="Delete Item" ng-click="$ctrl.delete(event)">
-                    <md-icon>
-                        <ng-md-icon icon="delete"></ng-md-icon>
-                    </md-icon>
-                </md-button>
                 <md-divider ng-if="!$last"></md-divider>
             </md-list-item>
             <md-divider></md-divider>
@@ -42,17 +31,6 @@
                     <ng-md-icon icon="insert_drive_file"></ng-md-icon>
                 </md-icon>
                 <p> {{event.title}} </p>
-                <md-button class="md-icon-button" aria-label="Edit Item" ng-click="$ctrl.edit(event)" ng-if="$ctrl.getCurrentUser()==event.user">
-                    <md-icon>
-                        <ng-md-icon icon="mode_edit"></ng-md-icon>
-                    </md-icon>
-                </md-button>
-
-                <md-button class="md-icon-button" aria-label="Delete Item" ng-click="$ctrl.delete(event)" ng-if="$ctrl.getCurrentUser()==event.user">
-                    <md-icon>
-                        <ng-md-icon icon="delete"></ng-md-icon>
-                    </md-icon>
-                </md-button>
                 <md-divider ng-if="!$last"></md-divider>
             </md-list-item>
             <md-divider></md-divider>
