@@ -44,12 +44,12 @@ class ViewEventCreateComponentController {
     };
 
     save() {
-        console.log(this.model);
-
         let user = this.UserService.getCurrentUser();
         this.model['user'] = user['_id'];
+        this.model['isOpen'] = true;
         let date = this.model.time;
         this.model.time = date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate();
+        console.log(this.model);
         this.EventsService.create(this.model).then(data => {
             let _id = data['_id'];
             this.$state.go('event', { eventId: _id });

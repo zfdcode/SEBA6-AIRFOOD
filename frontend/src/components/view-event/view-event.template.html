@@ -24,22 +24,10 @@
 
     <md-card-content>
         <p>{{$ctrl.event.address}}</p>
-
-    </md-card-content>
-
-    <md-card-actions layout="row" layout-align="start center">
-        <md-card-icon-actions>
-            <md-button class="md-icon-button" md-colors="red" aria-label="Favorite">
-                <md-icon md-svg-icon="img/icons/favorite.svg"></md-icon>
-            </md-button>
-            <md-button class="md-icon-button" aria-label="Share">
-                <md-icon md-svg-icon="img/icons/share-arrow.svg"></md-icon>
-            </md-button>
-        </md-card-icon-actions>
-    </md-card-actions>
-    <md-card-content>
         <p>{{$ctrl.event.description}}</p>
     </md-card-content>
-
-
 </md-card>
+
+<md-button class="md-fab md-fab-bottom-right md-ink-ripple" aria-label="Book Event" ng-click="$ctrl.bookEvent()">
+    <md-icon><ng-md-icon icon="add"></ng-md-icon></md-icon>
+</md-button>

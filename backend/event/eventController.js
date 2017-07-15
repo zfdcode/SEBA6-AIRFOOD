@@ -40,10 +40,42 @@ exports.getEventsByFilter = function (req, res) {
         res.json(events);
     });
 };
+
+exports.getEventsByFilter = function (req, res) {
+    Event.find({ isOpen: true, city: req.params.city, guestCount: { $gte: req.params.guestCount }, time: new Date(req.params.date) }, function (err, events) {
+        if (err) {
+            res.status(400).send(err);
+            return;
+        }
+        res.json(events);
+    });
+};
+
+exports.getEventsByUser = function (req, res) {
+    Event.find({ user: req.params.user }, function (err, events) {
+        if (err) {
+            res.status(400).send(err);
+            return;
+        }
+        res.json(events);
+    });
+};
+
+exports.getEventsByGuest = function (req, res) {
+    Event.find({ guest: req.params.guest }, function (err, events) {
+        if (err) {
+            res.status(400).send(err);
+            return;
+        }
+        res.json(events);
+    });
+};
+
 // Create endpoint /api/events/:event_id for GET
 exports.getEvent = function (req, res) {
     // Use the Event model to find a specific event
-    Event.findById(req.params.event_id, function (err, event) {
+
+    Event.find({ _id: req.params.event_id }, function (err, event) {
         if (err) {
             res.status(400).send(err)
             return;

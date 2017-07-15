@@ -85,7 +85,7 @@
                 <ng-md-icon icon="file_upload"></ng-md-icon>
                 <label>Upload Photos</label>
                 <input type="file" file-model="myFile" />
-                <md-button class="md-raised md-primary" ng-click="$ctrl.uploadFile()">Select Image</md-button>
+                <md-button class="md-raised md-primary" ng-model="$ctrl.model.image" ng-click="$ctrl.uploadFile()">Select Image</md-button>
             </div>
             <div layout="row">
                 <span flex></span>

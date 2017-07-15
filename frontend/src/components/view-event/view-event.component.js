@@ -39,6 +39,13 @@ class ViewEventComponentController{
         }
     };
 
+    bookEvent (){
+        //TODO:
+        this.event['guest']=this.user._id
+        //this.event.isOpen=false
+        //this.EventsService.update(this.event).then()...
+    } 
+
 
     delete() {
         if (this.UserService.isAuthenticated()) {

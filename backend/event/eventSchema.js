@@ -2,10 +2,10 @@
 var mongoose = require('mongoose');
 
 // Define our event schema
-var Event   = new mongoose.Schema({
+var Event = new mongoose.Schema({
     title: String,
     time: Date,
-    city:{
+    city: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'City'
     },
@@ -19,7 +19,13 @@ var Event   = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
     },
-    guestCount: Number
+    guestCount: Number,
+    isOpen: Boolean,
+    guest: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User'
+    },
+    eventTime : Date,
 });
 
 // Export the Mongoose model

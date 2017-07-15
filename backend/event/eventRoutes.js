@@ -21,6 +21,12 @@ function eventRoutes(passport) {
     router.route('/city=:city&date=:date&guestCount=:guestCount')
         .get(eventController.getEventsByFilter);
 
+    router.route('/user=:user')
+        .get(eventController.getEventsByUser);
+
+    router.route('/guest=:guest')
+        .get(eventController.getEventsByGuest);
+
     router.route('/:event_id')
         .get(eventController.getEvent)
         .put(eventController.putEvent)
