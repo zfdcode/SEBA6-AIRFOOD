@@ -24,22 +24,22 @@ class ViewProfileComponent {
 class ViewProfileComponentController {
     constructor($state, EventsService, UserService) {
         this.$state = $state;
-        this.UserService = UserService;
         this.EventsService = EventsService;
+        this.UserService = UserService;
         this.user = this.UserService.getCurrentUser();
     }
 
-    details (event) {
+    details(event) {
         let _id = event['_id'];
-        this.$state.go('event',{ eventId:_id});
+        this.$state.go('event', { eventId: _id });
     };
 
-    edit (event) {
+    edit(event) {
         if (this.UserService.isAuthenticated()) {
             let _id = event['_id'];
-            this.$state.go('eventEdit',{ eventId:_id});
+            this.$state.go('eventEdit', { eventId: _id });
         } else {
-            this.$state.go('login',{});
+            this.$state.go('login', {});
         }
     };
 
@@ -51,7 +51,7 @@ class ViewProfileComponentController {
                 this.events.splice(index, 1);
             })
         } else {
-            this.$state.go('login',{});
+            this.$state.go('login', {});
         }
     };
 
