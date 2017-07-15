@@ -44,17 +44,6 @@ class ViewEventComponentController {
         //this.event['guest'] = this.user._id
         //this.event.isOpen=false
         //this.EventsService.update(this.event).then()...
-        db.events.aggregate([
-            {
-                $lookup:
-                {
-                    from: "cities",
-                    localField: "city",
-                    foreignField: "_id",
-                    as: "detailedCityInfo"
-                }
-            }])
-        db.events.aggregate([{ $lookup: { from: "cities", localField: "city", foreignField: "_id", as: "detailedCityInfo" } }]).find()
     }
 
 

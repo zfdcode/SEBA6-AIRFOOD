@@ -74,7 +74,19 @@ exports.getEventsByGuest = function (req, res) {
 // Create endpoint /api/events/:event_id for GET
 exports.getEvent = function (req, res) {
     // Use the Event model to find a specific event
+    Event.findById(req.params.event_id)
+        .exec(function (err, event) {
+            if (err) {
+                res.status(400).send(err)
+                return;
+            };
 
+            res.json(event);
+        });
+};
+
+exports.getEventDetails = function (req, res) {
+    // Use the Event model to find a specific event
     Event.findById(req.params.event_id)
         .populate([
             { path: 'city', select: '_id name' },

@@ -32,5 +32,8 @@ function eventRoutes(passport) {
         .put(eventController.putEvent)
         .delete(eventController.deleteEvent);
 
+    router.route('/details/:event_id')
+        .get(eventController.getEventDetails)
+
     return router;
 }
