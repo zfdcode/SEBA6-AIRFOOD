@@ -28,7 +28,9 @@
                     <ng-md-icon icon="schedule"></ng-md-icon>
                 </md-icon>
                 <input name="eventTime" placeholder="Start Time" ng-model="$ctrl.model.eventTime" type="time" required="">
-                <div ng-message="required">This time is required!</div>
+                <div ng-messages="modelForm.eventTime.$error">
+                    <div ng-message="required">This time is required!</div>
+                </div>
             </md-input-container>
             <md-input-container class="md-icon-float md-block">
                 <md-icon>
