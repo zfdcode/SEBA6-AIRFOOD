@@ -7,25 +7,38 @@
         </md-card-title-media>
         <md-card-title-text>
             <md-card-actions layout="row" layout-align="end center">
-                <md-button class="md-icon-button" aria-label="Edit Item" ng-click="$ctrl.edit()" ng-if="event.user==$ctrl.user._id">
+                <md-button class="md-icon-button" aria-label="Edit Item" ng-click="$ctrl.edit()" ng-if="$ctrl.event.user==$ctrl.user._id">
                     <md-icon><ng-md-icon icon="mode_edit"></ng-md-icon></md-icon>
                 </md-button>
 
-                <md-button class="md-icon-button"aria-label="Delete Item" ng-click="$ctrl.delete()" ng-if="event.user==$ctrl.user._id">
+                <md-button class="md-icon-button"aria-label="Delete Item" ng-click="$ctrl.delete()" ng-if="$ctrl.event.user==$ctrl.user._id">
                     <md-icon><ng-md-icon icon="delete" ></ng-md-icon></md-icon>
                 </md-button>
             </md-card-actions>
-
             <span class="md-headline">{{$ctrl.event.title}}</span>
-            <span class="md-subhead">{{$ctrl.event.year}}</span>
+            <span class="md-subhead">{{$ctrl.event.time|date:medium}}</span>
 
         </md-card-title-text>
 
     </md-card-title>
 
     <md-card-content>
-        <p>{{$ctrl.event.mpaa_rating}}</p>
-        <p>{{$ctrl.event.synopsis}}</p>
+        <p>{{$ctrl.event.address}}</p>
+
+    </md-card-content>
+
+    <md-card-actions layout="row" layout-align="start center">
+        <md-card-icon-actions>
+            <md-button class="md-icon-button" md-colors="red" aria-label="Favorite">
+                <md-icon md-svg-icon="img/icons/favorite.svg"></md-icon>
+            </md-button>
+            <md-button class="md-icon-button" aria-label="Share">
+                <md-icon md-svg-icon="img/icons/share-arrow.svg"></md-icon>
+            </md-button>
+        </md-card-icon-actions>
+    </md-card-actions>
+    <md-card-content>
+        <p>{{$ctrl.event.description}}</p>
     </md-card-content>
 
 

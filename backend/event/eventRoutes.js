@@ -12,11 +12,14 @@ function eventRoutes(passport) {
 
     //middleware
     //TODO:set unless methods
-    router.use(mw.unless({method: ['GET','POST','DELETE','PUT','OPTIONS']}));
+    router.use(mw.unless({method: ['GET','OPTIONS']}));
 
     router.route('/')
         .post(eventController.postEvent)
         .get(eventController.getEvents);
+
+    router.route('/city=:city&date=:date&guestCount=:guestCount')
+        .get(eventController.getEventsByFilter);
 
     router.route('/:event_id')
         .get(eventController.getEvent)

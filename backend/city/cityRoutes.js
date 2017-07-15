@@ -7,15 +7,18 @@ function cityRoutes(passport) {
     var router = require('express').Router();
     var unless = require('express-unless');
 
-    var mw = passport.authenticate('jwt', {session: false});
+    var mw = passport.authenticate('jwt', { session: false });
     mw.unless = unless;
 
     //middleware
     //TODO:set unless methods
-    router.use(mw.unless({method: ['GET','POST','DELETE','PUT','OPTIONS']}));
+    router.use(mw.unless({ method: ['GET', 'OPTIONS'] }));
 
     router.route('/')
         .get(cityController.getCities);
+
+    router.route('/:city_id')
+        .get(cityController.getCity);
 
     return router;
 }

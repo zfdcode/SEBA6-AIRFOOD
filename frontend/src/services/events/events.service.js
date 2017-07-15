@@ -16,8 +16,12 @@ export default class EventsService {
         return 'eventsService';
     }
 
-    list() {
-        let url = this.resourceUrl;
+    list(city,date,guestCount) {
+        city=city==null?"":`city=${city}&`;
+        date=date==null?"":`date=${date}&`;
+        guestCount=guestCount==null?"":`guestCount=${guestCount}`;
+        let url = `${this.resourceUrl}${city}${date}${guestCount}`;
+        console.log(url);
         return this.$http.get(url).then(responce => {
             return new Promise((resolve, reject) => {
                 resolve(responce.data);

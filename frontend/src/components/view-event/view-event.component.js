@@ -31,35 +31,24 @@ class ViewEventComponentController{
     }
 
     edit () {
-        /*
         if (this.UserService.isAuthenticated()) {
             let _id = this.event['_id'];
             this.$state.go('eventEdit',{ eventId:_id});
         } else {
             this.$state.go('login',{});
         }
-        */
-        let _id = this.event['_id'];
-        this.$state.go('eventEdit',{ eventId:_id});
     };
 
 
     delete() {
-        /*
         if (this.UserService.isAuthenticated()) {
             let _id = this.event['_id'];
-
             this.EventsService.delete(_id).then(response => {
                 this.$state.go('events',{});
             });
         } else {
             this.$state.go('login',{});
         }
-        */
-        let _id = this.event['_id'];
-        this.EventsService.delete(_id).then(response => {
-            this.$state.go('events',{});
-        });
     };
 
 

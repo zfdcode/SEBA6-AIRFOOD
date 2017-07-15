@@ -4,13 +4,18 @@
 import template from './view-event-edit.template.html';
 
 import EventsService from './../../services/events/events.service';
+import UserService from './../../services/user/user.service';
+import CityService from './../../services/city/city.service';
+import FoodTypeService from './../../services/foodType/foodType.service'
 
 class ViewEventEditComponent {
-    constructor(){
+    constructor() {
         this.controller = ViewEventEditComponentController;
         this.template = template;
         this.bindings = {
             event: '<',
+            cities: '<',
+            foodTypes: '<',
         }
     }
 
@@ -19,55 +24,50 @@ class ViewEventEditComponent {
     }
 }
 
-class ViewEventEditComponentController{
+class ViewEventEditComponentController {
     constructor($state, EventsService) {
         this.model = {};
         this.$state = $state;
         this.EventsService = EventsService;
-        this.eventDescription = "";
+        this.UserService = UserService;
+        this.CityService = CityService;
+        this.FoodTypeService = FoodTypeService;
+        this.today = new Date();
     }
-    $onInit()
-        {
+    $onInit() {
         //Clone the Event Data
         this.model = JSON.parse(JSON.stringify(this.event))
     }
 
-    cancel()
-        {
+    cancel() {
         this.model = JSON.parse(JSON.stringify(this.event));
-        this.$state.go('events',{});
+        //this.$state.go('events',{});
+        window.history.go(-1);
     };
 
-    save()
-        {
+    save() {
         let _id = this.event['_id'];
         let date = this.model.time;
-        this.model.time = date.getFullYear()+"-"+date.getMonth()+"-"+date.getDate();
+        this.model.time = date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate();
         this.EventsService.update(this.model).then(data => {
             this.event = JSON.parse(JSON.stringify(data));
-            this.$state.go('event',{ eventId:_id});
+            this.$state.go('event', { eventId: _id });
         });
 
     };
 
-    delete()
-        {
+    delete() {
         let _id = this.event['_id'];
         this.EventsService.delete(_id).then(response => {
-            this.$state.go('events',{});
+            this.$state.go('events', {});
         });
     };
-    uploadFile(){
+    uploadFile() {
         //TODO: uploading process
     }
 
-    /*onGoogleReady() {
-    angular.bootstrap(document.getElementById("map"), ['app.ui-map']);
-}*/
-
-    static get $inject()
-        {
-        return ['$state', EventsService.name];
+    static get $inject() {
+        return ['$state', EventsService.name, UserService.name, CityService.name, FoodTypeService.name];
     }
 
 }
