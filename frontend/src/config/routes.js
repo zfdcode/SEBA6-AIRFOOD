@@ -7,6 +7,7 @@ import EventCreateComponent from './../components/view-event-create/view-event-c
 import LoginComponent from './../components/view-login/view-login.component';
 import HomeComponent from './../components/view-home/view-home.component';
 import RegisterComponent from './../components/view-register/view-register.component';
+import ErrorComponent from './../components/view-error/view-error.component';
 
 import EventsService from './../services/events/events.service';
 import CityService from './../services/city/city.service'; 
@@ -36,7 +37,7 @@ function resolveFoodTypes(foodTypeService) {
 config.$inject = ['$stateProvider', '$urlRouterProvider'];
 export default function config($stateProvider, $urlRouterProvider) {
 
-    // For any unmatched url, redirect to /home
+    // For any unmatched url, redirect to /error
     $urlRouterProvider.otherwise("/home");
 
     $stateProvider
@@ -85,6 +86,10 @@ export default function config($stateProvider, $urlRouterProvider) {
         .state('register', {
             url: '/register',
             component: RegisterComponent.name,
+        })
+        .state('error', {
+            url: '/error',
+            component: ErrorComponent.name,
         })
 
 
