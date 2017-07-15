@@ -58,6 +58,15 @@ export default class EventsService {
         })
     }
 
+    getDetails(id) {
+        let url = `${this.resourceUrl}details/${id}`;
+        return this.$http.get(url).then(responce => {
+            return new Promise((resolve, reject) => {
+                resolve(responce.data);
+            });
+        })
+    }
+
     create(event) {
         let url = this.resourceUrl;
         return this.$http.post(url, event).then(responce => {

@@ -74,15 +74,35 @@ exports.getEventsByGuest = function (req, res) {
 // Create endpoint /api/events/:event_id for GET
 exports.getEvent = function (req, res) {
     // Use the Event model to find a specific event
+    Event.findById(req.params.event_id)
+        .exec(function (err, event) {
+            if (err) {
+                res.status(400).send(err)
+                return;
+            };
 
-    Event.findById(req.params.event_id, function (err, event) {
-        if (err) {
-            res.status(400).send(err)
-            return;
-        };
+            res.json(event);
+        });
+};
 
-        res.json(event);
-    });
+exports.getEventDetails = function (req, res) {
+    // Use the Event model to find a specific event
+    Event.findById(req.params.event_id)
+        .populate([
+            { path: 'city', select: '_id name' },
+            { path: 'user', select: '_id username' },
+            { path: 'foodType', select: '_id type' },
+            { path: 'guest', select: '_id username' }
+        ])
+        .populate()
+        .exec(function (err, event) {
+            if (err) {
+                res.status(400).send(err)
+                return;
+            };
+
+            res.json(event);
+        });
 };
 // Create endpoint /api/events/:event_id for PUT
 exports.putEvent = function (req, res) {

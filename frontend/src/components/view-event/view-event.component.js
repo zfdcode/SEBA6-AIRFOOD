@@ -5,6 +5,8 @@ import template from './view-event.template.html';
 import EventsService from './../../services/events/events.service';
 import UserService from './../../services/user/user.service';
 
+import './view-event.style.css';
+
 class ViewEventComponent {
     constructor() {
         this.controller = ViewEventComponentController;

@@ -21,6 +21,11 @@ function resolveEvent($stateParams, eventsService) {
     return eventsService.get($stateParams.eventId);
 }
 
+resolveEvent.$inject = ['$stateParams', EventsService.name];
+function resolveEventDetails($stateParams, eventsService) {
+    return eventsService.getDetails($stateParams.eventId);
+}
+
 resolveEvents.$inject = ['$stateParams', EventsService.name];
 function resolveEvents($stateParams, eventsService) {
     return eventsService.list($stateParams.city, $stateParams.date, $stateParams.guestCount);
@@ -89,7 +94,7 @@ export default function config($stateProvider, $urlRouterProvider) {
             url: '/events/:eventId',
             component: EventComponent.name,
             resolve: {
-                event: resolveEvent
+                event: resolveEventDetails
             }
         })
         .state('eventEdit', {
