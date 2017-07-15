@@ -5,6 +5,8 @@ import template from './view-event.template.html';
 import EventsService from './../../services/events/events.service';
 import UserService from './../../services/user/user.service';
 
+import './view-event.style.css';
+
 class ViewEventComponent {
     constructor() {
         this.controller = ViewEventComponentController;
@@ -44,15 +46,15 @@ class ViewEventComponentController {
         //this.EventsService.update(this.event).then()...
         db.events.aggregate([
             {
-            $lookup:
+                $lookup:
                 {
-                from: "cities",
-                localField: "city",
-                foreignField: "_id",
-                as: "detailedCityInfo"
+                    from: "cities",
+                    localField: "city",
+                    foreignField: "_id",
+                    as: "detailedCityInfo"
                 }
-        }])
-        db.events.aggregate([{$lookup:{from: "cities",localField: "city",foreignField: "_id",as: "detailedCityInfo"}}]).find()
+            }])
+        db.events.aggregate([{ $lookup: { from: "cities", localField: "city", foreignField: "_id", as: "detailedCityInfo" } }]).find()
     }
 
 
