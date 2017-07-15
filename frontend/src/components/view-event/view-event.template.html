@@ -7,27 +7,35 @@
         </md-card-title-media>
         <md-card-title-text>
             <md-card-actions layout="row" layout-align="end center">
-                <md-button class="md-icon-button" aria-label="Edit Item" ng-click="$ctrl.edit()" ng-if="$ctrl.event.user==$ctrl.user._id">
-                    <md-icon><ng-md-icon icon="mode_edit"></ng-md-icon></md-icon>
+                <md-button class="md-icon-button" aria-label="Edit Item" ng-click="$ctrl.edit()" ng-if="$ctrl.event.user._id==$ctrl.user._id">
+                    <md-icon>
+                        <ng-md-icon icon="mode_edit"></ng-md-icon>
+                    </md-icon>
                 </md-button>
 
-                <md-button class="md-icon-button"aria-label="Delete Item" ng-click="$ctrl.delete()" ng-if="$ctrl.event.user==$ctrl.user._id">
-                    <md-icon><ng-md-icon icon="delete" ></ng-md-icon></md-icon>
+                <md-button class="md-icon-button" aria-label="Delete Item" ng-click="$ctrl.delete()" ng-if="$ctrl.event.user._id==$ctrl.user._id">
+                    <md-icon>
+                        <ng-md-icon icon="delete"></ng-md-icon>
+                    </md-icon>
                 </md-button>
             </md-card-actions>
             <span class="md-headline">{{$ctrl.event.title}}</span>
-            <span class="md-subhead">{{$ctrl.event.time|date:medium}}</span>
-
+            <span class="md-subhead">{{$ctrl.event.time|date:medium}} {{$ctrl.event.eventTime|date:'HH:mm'}}</span>
         </md-card-title-text>
-
     </md-card-title>
 
     <md-card-content>
-        <p>{{$ctrl.event.address}}</p>
-        <p>{{$ctrl.event.description}}</p>
+        <p><b>City:</b> {{$ctrl.event.city.name}}</p>
+        <p><b>Address:</b> {{$ctrl.event.address}}</p>
+        <p><b>Foodtype:</b> {{$ctrl.event.foodType.type}}</p>
+        <p><b>Guest:</b> {{$ctrl.event.guest.username}}</p>
+        <p><b>Guest Count:</b> {{$ctrl.event.guestCount}}</p>
+        <p><b>Description:</b> {{$ctrl.event.description}}</p>
     </md-card-content>
 </md-card>
 
 <md-button class="md-fab md-fab-bottom-right md-ink-ripple" aria-label="Book Event" ng-click="$ctrl.bookEvent()">
-    <md-icon><ng-md-icon icon="add"></ng-md-icon></md-icon>
+    <md-icon>
+        <ng-md-icon icon="add"></ng-md-icon>
+    </md-icon>
 </md-button>
