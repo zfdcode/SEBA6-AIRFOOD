@@ -21,6 +21,10 @@ var Event = new mongoose.Schema({
     },
     guestCount: Number,
     isOpen: Boolean,
+    guest: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User'
+    },
 });
 
 // Export the Mongoose model

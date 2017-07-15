@@ -2,6 +2,8 @@
 
 import template from './view-home.template.html';
 import CityService from './../../services/city/city.service';
+import UserService from './../../services/user/user.service';
+
 import './view-home.style.css';
 
 class ViewHomeComponent {
@@ -19,10 +21,11 @@ class ViewHomeComponent {
 }
 
 class ViewHomeComponentController {
-    constructor($state, CityService) {
+    constructor($state, CityService, UserService) {
         this.$state = $state;
         this.inputs = {};
         this.CityService = CityService;
+        this.UserService = UserService;
         this.today = new Date();
     }
 
@@ -34,8 +37,16 @@ class ViewHomeComponentController {
         this.$state.go('events', { city: city, date: formattedDate, guestCount: guestCount });
     };
 
+    newEvent() {
+        if (this.UserService.isAuthenticated()) {
+            this.$state.go('eventAdd', {});
+        } else {
+            this.$state.go('login', {});
+        }
+    }
+
     static get $inject() {
-        return ['$state', CityService.name];
+        return ['$state', CityService.name, UserService.name];
     }
 }
 

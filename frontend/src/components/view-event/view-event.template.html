@@ -27,6 +27,8 @@
         <p>{{$ctrl.event.address}}</p>
         <p>{{$ctrl.event.description}}</p>
     </md-card-content>
-
-
 </md-card>
+
+<md-button class="md-fab md-fab-bottom-right md-ink-ripple" aria-label="Book Event" ng-click="$ctrl.bookEvent()">
+    <md-icon><ng-md-icon icon="add"></ng-md-icon></md-icon>
+</md-button>
