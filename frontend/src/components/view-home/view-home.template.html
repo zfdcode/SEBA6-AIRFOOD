@@ -6,8 +6,8 @@
                 <span class="md-subhead" layout-align="center center">Tell us more about you</span>
             </md-card-title-text>
         </md-card-title>
-        <md-card-content layout="row">
-            <md-input-container>
+        <md-card-content layout="row" layout-align="space-between">
+            <md-input-container class="md-block" flex-gt-sm>
                 <md-icon>
                     <ng-md-icon icon="search"></ng-md-icon>
                 </md-icon>
@@ -18,7 +18,7 @@
                     <div ng-message="required">City is required</div>
                 </div>
             </md-input-container>
-            <md-input-container>
+            <md-input-container class="md-block" flex-gt-sm>
                 <md-datepicker type="date" name="event_date" ng-model="$ctrl.inputs.time" md-placeholder="Enter date" md-min-date="$ctrl.today"
                     md-open-on-focus required></md-datepicker>
                 <div ng-messages="inputForm.event_date.$error">
@@ -27,7 +27,7 @@
                     <div ng-message="mindate">Date is too early for {{$ctrl.today}}!</div>
                 </div>
             </md-input-container>
-            <md-input-container>
+            <md-input-container class="md-block" flex-gt-sm>
                 <md-select name="questCountSelect" ng-model="$ctrl.inputs.guestCount" placeholder="Guest count of event" required>
                     <md-option value="1">1</md-option>
                     <md-option value="2">2</md-option>
@@ -44,7 +44,7 @@
                     <div ng-message="required">Guest count is required!</div>
                 </div>
             </md-input-container>
-            <md-button id="home_search" class="md-raised md-primary" type="submit" ng-click="$ctrl.searchEvents()">Search</md-button>
+            <md-button id="home_search" class="md-raised md-primary" layout-align="end center" type="submit" ng-click="$ctrl.searchEvents()" >Search</md-button>
         </md-card-content>
     </md-card>
 </form>

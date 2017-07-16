@@ -119,10 +119,10 @@ export default function config($stateProvider, $urlRouterProvider) {
             component: ErrorComponent.name,
         })
 
-        .state('success', {
+       /* .state('success', {
             url: '/success',
             component: SuccessComponent.name,
-        })
+        })*/
 
 
 }

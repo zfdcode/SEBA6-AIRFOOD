@@ -1,4 +1,4 @@
-
+/*
 'use strict';
 
 import template from './view-success.template.html';
@@ -26,4 +26,4 @@ class ViewSuccessComponentController {
 
 }
 
-export default ViewSuccessComponent;
+export default ViewSuccessComponent;*/
