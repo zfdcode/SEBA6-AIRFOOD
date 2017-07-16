@@ -6,7 +6,7 @@
                 <span class="md-subhead" layout-align="center center">Tell us more about you</span>
             </md-card-title-text>
         </md-card-title>
-        <md-card-content layout="row" layout-align="space-between">
+        <md-card-content layout="row" layout-align="space-around">
             <md-input-container class="md-block" flex-gt-sm>
                 <md-icon>
                     <ng-md-icon icon="search"></ng-md-icon>
@@ -44,11 +44,12 @@
                     <div ng-message="required">Guest count is required!</div>
                 </div>
             </md-input-container>
-            <md-button id="home_search" class="md-raised md-primary" layout-align="end center" type="submit" ng-click="$ctrl.searchEvents()" >Search</md-button>
+            <md-button id="home_search" class="md-raised md-primary" type="submit" ng-click="$ctrl.searchEvents()">Search</md-button>
         </md-card-content>
     </md-card>
 </form>
-
-<md-button class="md-raised md-bottom-right md-primary" aria-label="New Event" ng-click="$ctrl.newEvent()">
-    New Event
-</md-button>
+<div layout="row" layout-align="end center">
+    <md-button class="md-raised md-primary" aria-label="New Event" ng-click="$ctrl.newEvent()">
+        New Event
+    </md-button>
+</div>
