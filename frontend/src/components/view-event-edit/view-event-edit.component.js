@@ -33,16 +33,18 @@ class ViewEventEditComponentController {
         this.CityService = CityService;
         this.FoodTypeService = FoodTypeService;
         this.today = new Date();
-        this.eventTime= new Date();
     }
     $onInit() {
         //Clone the Event Data
         this.model = JSON.parse(JSON.stringify(this.event))
+        console.log(this.model);
+        this.model.eventTime = new Date(this.model.eventTime);
+        this.model.time = new Date(this.model.time);
+        console.log(this.model);
     }
 
     cancel() {
         this.model = JSON.parse(JSON.stringify(this.event));
-        //this.$state.go('events',{});
         window.history.go(-1);
     };
 

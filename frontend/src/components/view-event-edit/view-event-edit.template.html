@@ -27,9 +27,8 @@
                 <md-icon>
                     <ng-md-icon icon="schedule"></ng-md-icon>
                 </md-icon>
-                <input name="eventTime" type="time" placeholder="Start Time" ng-model="$ctrl.model.eventTime" type="time" required="">
+                <input name="eventTime" placeholder="Start Time" ng-model="$ctrl.model.eventTime" type="time" required="">
                 <div ng-messages="modelForm.eventTime.$error">
-                    <div ng-message="valid">The entered value is not a date - {{$ctrl.model.eventTime}}!</div>
                     <div ng-message="required">This time is required!</div>
                 </div>
             </md-input-container>
@@ -95,7 +94,7 @@
                 <ng-md-icon icon="file_upload"></ng-md-icon>
                 <label>Upload Photos</label>
                 <input type="file" file-model="myFile" />
-                <md-button class="md-raised md-primary" ng-click="$ctrl.uploadFile()">Select Image</md-button>
+                <md-button class="md-raised md-primary" ng-model="$ctrl.model.image" ng-click="$ctrl.uploadFile()">Select Image</md-button>
             </div>
             <div layout="row">
                 <span flex></span>
