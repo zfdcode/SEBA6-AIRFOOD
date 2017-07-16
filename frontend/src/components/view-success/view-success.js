@@ -2,7 +2,7 @@
 
 import angular from 'angular';
 
-import ViewErrorComponent from './view-success.component';
+import ViewSuccessComponent from './view-success.component';
 
 
 export default angular.module('ViewSuccess', [])

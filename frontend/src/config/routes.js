@@ -9,6 +9,7 @@ import HomeComponent from './../components/view-home/view-home.component';
 import RegisterComponent from './../components/view-register/view-register.component';
 import ErrorComponent from './../components/view-error/view-error.component';
 import ProfileComponent from './../components/view-profile/view-profile.component';
+import SuccessComponent from './../components/view-success/view-success.component';
 
 import EventsService from './../services/events/events.service';
 import CityService from './../services/city/city.service';
@@ -75,6 +76,10 @@ export default function config($stateProvider, $urlRouterProvider) {
                 eventsAsGuest: resolveEventsAsGuest
             }
         })
+        .state('success', {
+            url: '/success',
+            component: SuccessComponent.name,
+        })
         .state('events', {
             url: '/events?city&date&guestCount',
             component: EventsComponent.name,
@@ -118,12 +123,5 @@ export default function config($stateProvider, $urlRouterProvider) {
             url: '/error',
             component: ErrorComponent.name,
         })
-
-       /* .state('success', {
-            url: '/success',
-            component: SuccessComponent.name,
-        })*/
-
-
 }
 

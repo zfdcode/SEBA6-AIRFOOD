@@ -16,8 +16,12 @@ class ViewSuccessComponent {
 }
 
 class ViewSuccessComponentController {
-    constructor($state, ) {
+    constructor($state) {
         this.$state = $state;
+    }
+
+    goProfile() {
+        this.$state.go('profile', {});
     }
 
     static get $inject() {

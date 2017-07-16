@@ -26,7 +26,7 @@ import ViewHome from './components/view-home/view-home';
 import ViewRegister from './components/view-register/view-register';
 import ViewError from './components/view-error/view-error';
 import ViewProfile from './components/view-profile/view-profile';
-//import ViewSuccess from './components/view-success/view-success';
+import ViewSuccess from './components/view-success/view-success';
 
 let app = angular.module('app', [
     uiRouter,
@@ -47,7 +47,7 @@ let app = angular.module('app', [
     ViewRegister.name,
     ViewError.name,
     ViewProfile.name,
-   // ViewSuccess.name,
+    ViewSuccess.name,
 ]);
 
 app.constant('API_URL', 'http://localhost:3000/api');
@@ -55,7 +55,7 @@ app.config(Routes);
 app.config(Middlewares);
 
 
-angular.element(document).ready(function() {
+angular.element(document).ready(function () {
     return angular.bootstrap(document.body, [app.name], {
         strictDi: true
     });

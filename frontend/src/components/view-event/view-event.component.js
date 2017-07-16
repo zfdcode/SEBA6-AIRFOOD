@@ -5,6 +5,8 @@ import template from './view-event.template.html';
 import EventsService from './../../services/events/events.service';
 import UserService from './../../services/user/user.service';
 
+import './view-event.style.css';
+
 class ViewEventComponent {
     constructor() {
         this.controller = ViewEventComponentController;
@@ -36,24 +38,12 @@ class ViewEventComponentController {
     };
 
     bookEvent() {
-        //TODO:
-        this.event.isOpen=false;
         this.event['guest'] = this.user._id
-        element.toggleClass("btn-active");
-        if(this.event.isOpen){
-            scope.buttonText="Book";
-            scope.isOpen=false;
-        } else {
-            scope.buttonText ="Is Booked";
-            this.event.isOpen=false;
-        }
-        console.log(this.event._id);
-        console.log(this.event);
-        
-        //this.event.isOpen=false
-        //this.EventsService.update(this.event).then()...
+        this.event.isOpen = false;
+        this.EventsService.update(this.event).then(response => {
+            this.$state.go('success', {});
+        });
     }
-
 
     delete() {
         if (this.UserService.isAuthenticated()) {
@@ -66,7 +56,6 @@ class ViewEventComponentController {
         }
     };
 
- 
     getPosterURL() {
         let posterURL = 'http://placehold.it/32x32';
         if (this.event.hasOwnProperty('posters')) {
