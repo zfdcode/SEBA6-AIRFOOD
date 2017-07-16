@@ -38,11 +38,15 @@ class ViewEventComponentController {
     };
 
     bookEvent() {
-        this.event['guest'] = this.user._id
-        this.event.isOpen = false;
-        this.EventsService.update(this.event).then(response => {
-            this.$state.go('success', {});
-        });
+        if (this.UserService.isAuthenticated()) {
+            this.event['guest'] = this.user._id
+            this.event.isOpen = false;
+            this.EventsService.update(this.event).then(response => {
+                this.$state.go('success', {});
+            });
+        } else {
+            this.$state.go('login', {});
+        }
     }
 
     delete() {
